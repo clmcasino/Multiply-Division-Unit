@@ -1,0 +1,45 @@
+//unsigned algorithm
+if (d==0)
+  error("Division by zero");
+
+//posso fare check se d>z
+
+/////////////////////////////////
+if (OVERFLOW_CONDITION)
+  error("Overflow")
+/////////////////////////////////
+
+if (z>=0.5 || z<=0.5){
+  z=z/2;
+  correction_flag=1;
+}
+
+
+s=z;
+//standard iterations
+for (i=0;i<NUMBITS;i++){
+  //u+v are MSB of carry and sum of carry-save adder
+  t=u+v
+  if (t>=0)
+    _q=1;
+    s=s-d
+  else if (t<=0.5)
+    _q=0;
+    s=s;
+  else
+    _q=-1;
+    s=s+d;
+  q[i]=_q;
+}
+
+//final correction
+if (sign(s)!=sign(z)){
+  if(s<0){
+    s=s+d
+    q=q-1
+  }
+  else{
+    s=s-d
+    q=q-1
+  }
+}
