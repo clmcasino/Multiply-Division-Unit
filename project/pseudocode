@@ -35,13 +35,13 @@ if (d>0){
 
   //correction
   if (sign(s)!=sign(z)){
-    if(s<0){
-      s=s+d
-      q=q-1
+    if(sign(s))=sign(d){
+      s=s-d;
+      q=q+1;
     }
     else{
-      s=s-d
-      q=q-1
+      s=s+d;
+      q=q-1;
     }
   }
 }
