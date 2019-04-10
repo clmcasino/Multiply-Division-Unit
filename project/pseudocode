@@ -9,6 +9,9 @@ if (OVERFLOW_CONDITION)
   error("Overflow")
 /////////////////////////////////
 
+if (d==d_1 && z==z_1)
+  return result_1
+
 if (z>=0.5 || z<=0.5){
   z=z/2;
   correction_flag=1;
@@ -32,18 +35,6 @@ if (d>0){
       s=s+d;
     q[i]=_q;
   }
-
-  //correction
-  if (sign(s)!=sign(z)){
-    if(sign(s))=sign(d){
-      s=s-d;
-      q=q+1;
-    }
-    else{
-      s=s+d;
-      q=q-1;
-    }
-  }
 }
 
 else{
@@ -63,17 +54,21 @@ for (i=0;i<NUMBITS;i++){
   q[i]=_q;
 }
 
-//correction
-if (sign(s)!=sign(z)){
-  if(s<0){
-    s=s-d
-    q=q-1
+//correction of result
+if(sign(s)!=sign(z)){
+  if(sign(s)!=sign(d)){
+    s=s+d;
+    q=q-1;
   }
   else{
-    s=s+d
-    q=q-1
+    s=s-d;
+    q=q+1;
   }
 }
+
+//sign of  q correction
+if (d<0){
+  q=-q;
 }
 
 //final correction
@@ -82,7 +77,3 @@ if (correction_flag){
    s=s/2;
 }
 
-//sign of  q correction
-if (d<0){
-  q=-q;
-}
