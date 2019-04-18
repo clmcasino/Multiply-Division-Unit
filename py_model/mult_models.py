@@ -1,4 +1,44 @@
-from bin_lib import printer_2s,twos_comp
+lib="../py_lib"
+import sys
+sys.path.append(lib)
+
+from bin_lib import *
+
+# software_mult2s(op0,op1,outpar):
+#
+# DESCRIPTION
+#    Computes regular signed muliplication starting from 2's complement strings.
+# INPUT
+#    Needs as inputs:
+#       multiplicand    as 2's complement number expressed as strings.
+#       multiplier      as 2's complement number expressed as strings.
+#       output          parallelism as an integer.
+# OUTPUT
+#    Returns the 2's complement result expressed as a string.
+
+def software_mult2s(op0,op1,outpar):
+    multiplicand=int(op0,2)
+    multiplicand=twos_comp(multiplicand,len(op0))
+    multiplier=int(op1,2)
+    multiplier=twos_comp(multiplier,len(op1))
+    product=multiplicand*multiplier
+    return printer_2s(product,outpar)+'\n'
+
+# software_mult(op0,op1):
+#
+# DESCRIPTION
+#    Computes regular signed muliplication starting from integers.
+# INPUT
+#    Needs as inputs:
+#       multiplicand    as integer.
+#       multiplier      as integer.
+# OUTPUT
+#    Returns the result expressed as integer.
+
+def software_mult(op0,op1):
+    return op0*op1
+
+################FUNCTION FOR SIGNED MBE RADIX2 MULTIPLICAND####################
 
 # recode_calculator(multiplier,i):
 #
@@ -16,6 +56,19 @@ def recode_calculator(multiplier,i):
         return (multiplier[len(multiplier)-2:len(multiplier)]+'0')
     else:
         return (multiplier[len(multiplier)-(2*i+2):len(multiplier)-(2*i-1)])
+
+# pp_calculator(multiplicand, recode):
+#
+# DESCRIPTION
+#    Computes recoded multplicand according to the MBE method.
+#    NOTE!!! In case of negative multiplicand output is just inverted!
+#    a=2 ----> ~a=-3    010 ----> 101
+# INPUT
+#    Needs as inputs:
+#       multiplicand    :as integer number.
+#       recode          :as 3 bit string expressing x(n+1) x(n) x(n-1).
+# OUTPUT
+#    Returns the recoded multiplicand.
 
 def pp_calculator(multiplicand, recode):
     if   recode=='000' or recode=='111':
@@ -35,28 +88,7 @@ def inv_evaluator(recode):
     else:
         return(0)
 
-
-# mult mult(op0,op1,outpar):
-#
-# DESCRIPTION
-#    Computes regular muliplication.
-# INPUT
-#    Needs as inputs:
-#       multiplicand
-#       multiplier as 2's complement number expressed as strings
-#       output parallelism as an integer
-# OUTPUT
-#    Returns the 2's complement result expressed as a string.
-
-def mult(op0,op1,outpar):
-    multiplicand=int(op0,2)
-    multiplicand=twos_comp(multiplicand,len(op0))
-    multiplier=int(op1,2)
-    multiplier=twos_comp(multiplier,len(op1))
-    product=multiplicand*multiplier
-    return printer_2s(product,outpar)+'\n'
-
-# mult_trunc_pp (multiplier,multiplicand)
+# MBEr4_signedMultiplier_wtTrunc (multiplier,multiplicand)
 # DESCRIPTION
 #    Computes regular muliplication.
 # INPUT
@@ -68,7 +100,7 @@ def mult(op0,op1,outpar):
 # OUTPUT
 #    Returns the 2's complement result expressed as a string.
 
-def mult_trunc_pp (op0,op1,outpar,lsbs):
+def MBEr4_signedMultiplier_wtTrunc (op0,op1,outpar,lsbs):
     if len(op0)!=len(op1):
         DADDALEVELS=int(input("How many DADDALEVELS should I set?\n"))
     else:
@@ -111,32 +143,38 @@ def mult_trunc_pp (op0,op1,outpar,lsbs):
     # Writing result
     return printer_2s(product,outpar)+'\n'
 
-# computeTruncResult(infile,outfile,outpar,lsbs):
+
+# MBEr4_signedMultiplier_wtTrunc (multiplier,multiplicand)
 # DESCRIPTION
-#    Produces a outfile with results from multiplication done with truncated pp (MBE)
+#    Computes regular muliplication.
 # INPUT
 #    Needs as inputs:
-#       infile  :name/path file with couples of 2's complement numbers.
-#       outfile :name/path of output file where result will be written as 2's complement numbers.
-#       outpar  :output parallelism as an integer.
-#       lsbs    :number of LSBs to be truncated.
+#       multiplicand
+#       multiplier as 2's complement number expressed as strings
+#       output parallelism as an integer
+#       number of LSBs to be truncated
 # OUTPUT
-#    No return
-def computeTruncResult(infile,outfile,outpar,lsbs):
-    with open(infile,"r") as fin_pointer, open(outfile,"w") as fout_pointer:
-        for line in fin_pointer:
-            nums=line.split()
-            fout_pointer.write(mult_trunc_pp(nums[0],nums[1],outpar,lsbs))
+#    Returns the 2's complement result expressed as a string.
 
-def trunc2sNum(num_str,outpar):
-    return(num_str[0:outpar])
-
-def truncResults(infile,outfile,outpar):
-    with open(infile,"r") as fin_pointer, open(outfile,"w") as fout_pointer:
-        for line in fin_pointer:
-            fout_pointer.write(trunc2sNum(line,outpar)+'\n')
-
-def integerTo2sFileConverter(infile,outfile,outpar):
-    with open(infile,"r") as fin_pointer, open(outfile,"w") as fout_pointer:
-        for line in fin_pointer:
-            fout_pointer.write(printer_2s(int(line),outpar)+'\n')
+def BE_multiplier (multiplicand,multiplier,signed_unsigned_n,parallelism):
+    if (signed_unsigned_n):
+        #we need to insert a guard bit!
+        parallelism+=1
+    mult_string=printer_2s(multiplier,parallelism)
+    a=multiplicand*(2**(parallelism-1))
+    if (int(mult_string[parallelism-1])):
+        p=-a
+    else:
+        p=0
+    p=p/2
+    for i in range(0,parallelism-2):
+        if mult_string[parallelism-i-2]=='0' and mult_string[parallelism-i-1]=='0':
+            p=p
+        elif mult_string[parallelism-i-2]=='0' and mult_string[parallelism-i-1]=='1':
+            p=p+a
+        elif mult_string[parallelism-i-2]=='1' and mult_string[parallelism-i-1]=='0':
+            p=p-a
+        else:
+            p=p
+        p=p/2
+    return p

@@ -44,3 +44,8 @@ def printer_2s(value,bits):
         else:
             string='1'+string
     return string
+
+def integerTo2sFileConverter(infile,outfile,outpar):
+    with open(infile,"r") as fin_pointer, open(outfile,"w") as fout_pointer:
+        for line in fin_pointer:
+            fout_pointer.write(printer_2s(int(line),outpar)+'\n')

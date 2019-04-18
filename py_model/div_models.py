@@ -71,7 +71,7 @@ def SRT_unsignedDivisor(dividend,divisor,inPar):
         correction_flag=False
 
     loop_iteration=0
-    while ((d<0.5 and d>0):
+    while ((d<0.5 and d>0)):
         loop_iteration+=1
         d=d*2
 

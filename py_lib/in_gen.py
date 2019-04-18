@@ -1,7 +1,7 @@
 import random
 from bin_lib import twos_comp, printer_2s
 
-# binStimGen(fname,lineNum,stimInLine,sign,bitDyn,nBit):
+# binStimFileGen(fname,lineNum,stimInLine,sign,bitDyn,nBit,delimiter):
 #
 # DESCRIPTION
 #    Creates a file with <stimNum> stimuli.
@@ -16,7 +16,7 @@ from bin_lib import twos_comp, printer_2s
 #       delimiter:  delimiter character between two consecutive stimuli.
 # OUTPUT
 #    Creates a file of stimuli in the specified path.
-def binStimGen(fname,lineNum,stimInLine,sign,bitDyn,nBit,delimiter):
+def binStimFileGen(fname,lineNum,stimInLine,sign,bitDyn,nBit,delimiter):
     with open(fname,"w") as fout_pointer:
         i=0
         while i<lineNum:
@@ -26,9 +26,47 @@ def binStimGen(fname,lineNum,stimInLine,sign,bitDyn,nBit,delimiter):
                 if(sign):
                     num=random.randint(-2**(bitDyn-1),2**(bitDyn-1)-1)
                 else:
-                    num=random.randint(0,2**(bitDyn-1)-1)
+                    num=random.randint(0,2**(bitDyn)-1)
                 string+=printer_2s(num,nBit)
                 string+=delimiter
                 j+=1
             fout_pointer.write(string+"\n")
             i+=1
+
+# binStimGen(sign,bitDyn,nBit):
+#
+# DESCRIPTION
+#    Creates a binary stimulus.
+# INPUT
+#    Needs as inputs:
+#       sign:       True for positive and negative, False for only positive
+#       bitDyn:     real dynamic of output numb.
+#       nBit:       number of output bit in the string.
+# OUTPUT
+#    Returns a stimulus.
+
+def binStimGen(sign,bitDyn,nBit):
+    if(sign):
+        num=random.randint(-2**(bitDyn-1),2**(bitDyn-1)-1)
+    else:
+        num=random.randint(0,2**(bitDyn)-1)
+    string=printer_2s(num,nBit)
+    return string
+
+# stimGen(sign,bitDyn):
+#
+# DESCRIPTION
+#    Creates an integer stimulus.
+# INPUT
+#    Needs as inputs:
+#       sign:       True for positive and negative, False for only positive
+#       bitDyn:     real dynamic of output numb.
+# OUTPUT
+#    Returns a stimulus.
+
+def stimGen(sign,bitDyn):
+    if(sign):
+        num=random.randint(-2**(bitDyn-1),2**(bitDyn-1)-1)
+    else:
+        num=random.randint(0,2**(bitDyn)-1)
+    return num
