@@ -157,17 +157,18 @@ def MBEr4_signedMultiplier_wtTrunc (op0,op1,outpar,lsbs):
 #    Returns the 2's complement result expressed as a string.
 
 def BE_multiplier (multiplicand,multiplier,signed_unsigned_n,parallelism):
-    if (signed_unsigned_n):
+    if (~signed_unsigned_n):
         #we need to insert a guard bit!
         parallelism+=1
     mult_string=printer_2s(multiplier,parallelism)
+
     a=multiplicand*(2**(parallelism-1))
     if (int(mult_string[parallelism-1])):
         p=-a
     else:
         p=0
     p=p/2
-    for i in range(0,parallelism-2):
+    for i in range(0,parallelism-1):
         if mult_string[parallelism-i-2]=='0' and mult_string[parallelism-i-1]=='0':
             p=p
         elif mult_string[parallelism-i-2]=='0' and mult_string[parallelism-i-1]=='1':
@@ -177,4 +178,5 @@ def BE_multiplier (multiplicand,multiplier,signed_unsigned_n,parallelism):
         else:
             p=p
         p=p/2
+    p=p*2
     return p

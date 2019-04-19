@@ -118,7 +118,7 @@ def SRT_unsignedDivisor(dividend,divisor,inPar):
         s=s*2
         quotient=quotient*2
 
-    s=s*(2**(inPar-loop_iteration))
+    s=s*(2**(inPar+1-loop_iteration))
     res=[]
     res+=[quotient]
     res+=[s]
