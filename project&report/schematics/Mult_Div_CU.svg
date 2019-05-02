@@ -15,7 +15,7 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (33fec40, 2019-01-16)"
-   sodipodi:docname="Mult_Div_ASM.svg">
+   sodipodi:docname="Mult_Div_CU.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,16 +25,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.98994949"
-     inkscape:cx="179.30236"
-     inkscape:cy="727.71681"
+     inkscape:zoom="1.979899"
+     inkscape:cx="535.78469"
+     inkscape:cy="59.067902"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
-     inkscape:window-width="1920"
-     inkscape:window-height="1050"
+     inkscape:window-width="1366"
+     inkscape:window-height="740"
      inkscape:window-x="0"
-     inkscape:window-y="1"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
      showguides="true"
      inkscape:guide-bbox="true">
@@ -1073,14 +1073,14 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
-       x="112.32703"
+       x="119.5433"
        y="197.39377"
        id="text279-8-6-7-9-5-1"><tspan
          sodipodi:role="line"
          id="tspan277-9-32-6-2-1-3"
-         x="112.32703"
+         x="119.5433"
          y="197.39377"
-         style="stroke-width:0.26458332">counter_regn_en&lt;=1</tspan></text>
+         style="stroke-width:0.26458332">q&lt;=qp-qn</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5044-2-3-6-7-06-3-5-1-1"
@@ -1551,15 +1551,10 @@
            x="85"
            y="72.519684"
            style="text-align:center;text-anchor:middle;fill:#2a7fff" /></flowRegion><flowPara
-         id="flowPara5050-0-4-7-7-90">qInv</flowPara></flowRoot>    <path
+         id="flowPara5050-0-4-7-7-90">saveQInv</flowPara></flowRoot>    <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 128.32292,275.83333 v 7.9375"
        id="path2081"
-       inkscape:connector-curvature="0" />
-    <path
-       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       d="m 141.55208,259.95833 h 30.42708 v 19.84375 h -43.65624"
-       id="path2083"
        inkscape:connector-curvature="0" />
     <rect
        style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.25099799;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
@@ -1617,7 +1612,7 @@
            x="85"
            y="72.519684"
            style="text-align:center;text-anchor:middle;fill:#2a7fff" /></flowRegion><flowPara
-         id="flowPara5050-0-5-2-1-5-5-5-4-8">reminder/2</flowPara></flowRoot>    <path
+         id="flowPara5050-0-5-2-1-5-5-5-4-8">reminderCorrect</flowPara></flowRoot>    <path
        style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 128.32291,307.58333 -13.22917,3.96876 13.22917,3.96875 13.22916,-3.96875 z"
        id="path5091-7-9-9-7-43-2-7-7-7"
@@ -1700,13 +1695,13 @@
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        x="123.53894"
-       y="324.26013"
+       y="323.72559"
        id="text279-8-64-6-5"><tspan
          sodipodi:role="line"
          id="tspan277-9-9-3-9"
          x="123.53894"
-         y="324.26013"
-         style="stroke-width:0.26458332">p&lt;=p+pp</tspan></text>
+         y="323.72559"
+         style="stroke-width:0.26458332">done&lt;=1</tspan></text>
     <flowRoot
        xml:space="preserve"
        id="flowRoot5044-2-3-6-7-6-9-3"
@@ -1720,5 +1715,90 @@
            x="85"
            y="72.519684"
            style="text-align:center;text-anchor:middle;fill:#2a7fff" /></flowRegion><flowPara
-         id="flowPara5050-0-5-2-1-4-1-0">multDone</flowPara></flowRoot>  </g>
+         id="flowPara5050-0-5-2-1-4-1-0">divDone</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot436"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,13.630745,3.2072347)"><flowRegion
+         id="flowRegion438"><rect
+           id="rect440"
+           width="266.56345"
+           height="551.41113"
+           x="20"
+           y="542.51971" /></flowRegion><flowPara
+         id="flowPara442"
+         style="fill:#ff2a2a">Control default values</flowPara><flowPara
+         id="flowPara469" /><flowPara
+         id="flowPara471">previousDataRegn_en &lt;=0</flowPara><flowPara
+         id="flowPara446">rev_en              &lt;=0</flowPara><flowPara
+         id="flowPara450">sumL_sel            &lt;=0</flowPara><flowPara
+         id="flowPara452">sumH_sel            &lt;=0</flowPara><flowPara
+         id="flowPara454">sumL_en             &lt;=0</flowPara><flowPara
+         id="flowPara456">sumH_en             &lt;=0</flowPara><flowPara
+         id="flowPara458">divisor_en          &lt;=0</flowPara><flowPara
+         id="flowPara460">curryH_sel          &lt;=0</flowPara><flowPara
+         id="flowPara462">curryL_sel          &lt;=0</flowPara><flowPara
+         id="flowPara466">curryH_en           &lt;=0</flowPara><flowPara
+         id="flowPara468">curryL_en           &lt;=0</flowPara><flowPara
+         id="flowPara464">invBits_shift_en    &lt;=0</flowPara><flowPara
+         id="flowPara470">carrySaveA_sel      &lt;=0</flowPara><flowPara
+         id="flowPara472">carrySaveB_sel      &lt;=0</flowPara><flowPara
+         id="flowPara474">counterRegn_en      &lt;=0</flowPara><flowPara
+         id="flowPara478">counter_sel         &lt;=0</flowPara><flowPara
+         id="flowPara480">ldCounter_en        &lt;=0</flowPara><flowPara
+         id="flowPara482">counter_en          &lt;=0</flowPara><flowPara
+         id="flowPara484">correction_sel      &lt;=0</flowPara><flowPara
+         id="flowPara486">sxOp_rxAdd_sel      &lt;=0</flowPara><flowPara
+         id="flowPara488">rxOp_rxAdd_sel      &lt;=0</flowPara><flowPara
+         id="flowPara490">addMode_sel         &lt;=0</flowPara><flowPara
+         id="flowPara492">rightAdd_sel        &lt;=0</flowPara><flowPara
+         id="flowPara494">leftAdd_mode        &lt;=0</flowPara><flowPara
+         id="flowPara496">addMode_sel         &lt;=0</flowPara><flowPara
+         id="flowPara498">pLr_en              &lt;=0</flowPara><flowPara
+         id="flowPara500">pHq_en              &lt;=0</flowPara><flowPara
+         id="flowPara502">output_sel          &lt;=0</flowPara><flowPara
+         id="flowPara476" /></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:0.18708865px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 171.97917,267.89582 v -3.96875 l 0,-3.96874 h -30.42709"
+       id="path1964-8-3"
+       inkscape:connector-curvature="0" />
+    <rect
+       style="opacity:1;fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:0.25099799;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       id="rect5042-6-3-0-4-3-5"
+       width="37.041668"
+       height="7.9374995"
+       x="153.45833"
+       y="267.89584" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot5044-6-7-7-9-4-3-6"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,131.0824,250.22606)"><flowRegion
+         id="flowRegion5046-6-5-4-1-4-8-2"
+         style="text-align:center;text-anchor:middle"><rect
+           id="rect5048-8-6-5-77-4-0-91"
+           width="139.54568"
+           height="29.494926"
+           x="85"
+           y="72.519684"
+           style="text-align:center;text-anchor:middle" /></flowRegion><flowPara
+         id="flowPara5050-3-3-25-1-7-4-27">q&lt;=q</flowPara></flowRoot>    <flowRoot
+       xml:space="preserve"
+       id="flowRoot5044-2-4-1-6-7-0"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:13.33333302px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';text-align:center;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#2a7fff;fill-opacity:1;stroke:none"
+       transform="matrix(0.26458333,0,0,0.26458333,112.16067,244.26063)"><flowRegion
+         id="flowRegion5046-8-7-5-3-6-9"
+         style="text-align:center;text-anchor:middle;fill:#2a7fff"><rect
+           id="rect5048-2-4-9-1-8-3"
+           width="139.54568"
+           height="29.494926"
+           x="85"
+           y="72.519684"
+           style="text-align:center;text-anchor:middle;fill:#2a7fff" /></flowRegion><flowPara
+         id="flowPara5050-0-4-7-7-90-6">saveQ</flowPara></flowRoot>    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 171.97916,275.83333 v 3.96875 h -43.65624"
+       id="path527"
+       inkscape:connector-curvature="0" />
+  </g>
 </svg>
