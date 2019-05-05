@@ -1,0 +1,100 @@
+# Loading project tb_counter
+# Compile of tb_counter.sv was successful.
+# Compile of syncCounter.sv failed with 2 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of tb_counter.sv was successful.
+# Compile of syncCounter.sv failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of tb_counter.sv was successful.
+# Compile of syncCounter.sv failed with 1 errors.
+# 2 compiles, 1 failed with 1 error.
+# Compile of syncCounter.sv failed with 1 errors.
+# Compile of syncCounter.sv failed with 1 errors.
+# Compile of syncCounter.sv failed with 2 errors.
+# Compile of syncCounter.sv failed with 3 errors.
+# Compile of syncCounter.sv failed with 2 errors.
+# Compile of syncCounter.sv was successful.
+vsim work.tb_counter
+# vsim work.tb_counter 
+# Start time: 11:20:47 on May 04,2019
+# Loading sv_std.std
+# Loading work.tb_counter
+# Loading work.syncCounter
+add wave sim:/tb_counter/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run -all
+restart
+quit -sim
+# End time: 11:23:32 on May 04,2019, Elapsed time: 0:02:45
+# Errors: 0, Warnings: 1
+# Compile of tb_counter.sv was successful.
+# Compile of syncCounter.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_counter
+# vsim work.tb_counter 
+# Start time: 11:23:52 on May 04,2019
+# Loading sv_std.std
+# Loading work.tb_counter
+# Loading work.syncCounter
+add wave sim:/tb_counter/*
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 11:26:30 on May 04,2019, Elapsed time: 0:02:38
+# Errors: 0, Warnings: 1

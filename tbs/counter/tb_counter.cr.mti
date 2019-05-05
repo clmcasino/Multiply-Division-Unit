@@ -1,0 +1,15 @@
+/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/syncCounter.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/syncCounter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module syncCounter
+
+Top level modules:
+	syncCounter
+
+} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/counter/tb_counter.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/counter/tb_counter.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_counter
+
+Top level modules:
+	tb_counter
+
+} {} {}}
