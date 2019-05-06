@@ -25,4 +25,4 @@ module operand0Conditioning (signalIn,signalOut,opCode);
       end
     end
   end
-end
+endmodule
