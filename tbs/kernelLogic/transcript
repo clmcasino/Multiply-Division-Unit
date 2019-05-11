@@ -1,0 +1,998 @@
+# Loading project tb_kernelLogic
+compile -all
+# wrong # args: should be "compile w cmd ..."
+compile all
+# wrong # args: should be "compile w cmd ..."
+# Compile of tb_kernelLogic.sv failed with 2 errors.
+# Compile of kernelLogic.sv failed with 3 errors.
+# 2 compiles, 2 failed with 5 errors.
+# Compile of tb_kernelLogic.sv failed with 16 errors.
+# Compile of kernelLogic.sv failed with 12 errors.
+# 2 compiles, 2 failed with 28 errors.
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv failed with 32 errors.
+# 2 compiles, 1 failed with 32 errors.
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv failed with 32 errors.
+# 2 compiles, 1 failed with 32 errors.
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv failed with 14 errors.
+# 2 compiles, 1 failed with 14 errors.
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# vsim work.tb_kernelLogic 
+# Start time: 10:57:49 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+# ** Error: (vsim-8378) /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/kernelLogic/tb_kernelLogic.sv(18): Port size (3) does not match connection size (1) for implicit .name connection port 'opCode'. The port definition is at: /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/kernelLogic.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_kernelLogic/DUT File: /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/kernelLogic.sv
+# Error loading design
+# End time: 10:57:49 on May 11,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# vsim work.tb_kernelLogic 
+# Start time: 10:58:27 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+add wave sim:/tb_kernelLogic/*
+run 30ns
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+run 30ns
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave  \
+sim:/tb_kernelLogic/DUT/divisionControl \
+sim:/tb_kernelLogic/DUT/signZ \
+sim:/tb_kernelLogic/DUT/signS \
+sim:/tb_kernelLogic/DUT/signD
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+add wave  \
+sim:/tb_kernelLogic/DUT/temp
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# WARNING: No extended dataflow license exists
+restart
+quit -sim
+# End time: 11:43:40 on May 11,2019, Elapsed time: 0:45:13
+# Errors: 0, Warnings: 6
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# vsim work.tb_kernelLogic 
+# Start time: 11:43:52 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_kernelLogic/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 11:48:18 on May 11,2019, Elapsed time: 0:04:26
+# Errors: 0, Warnings: 2
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# vsim work.tb_kernelLogic 
+# Start time: 11:48:32 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_kernelLogic/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 12:12:01 on May 11,2019, Elapsed time: 0:23:29
+# Errors: 0, Warnings: 2
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# vsim work.tb_kernelLogic 
+# Start time: 12:12:12 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_kernelLogic/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 12:23:53 on May 11,2019, Elapsed time: 0:11:41
+# Errors: 0, Warnings: 2
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv failed with 4 errors.
+# 2 compiles, 1 failed with 4 errors.
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# vsim work.tb_kernelLogic 
+# Start time: 12:26:02 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_kernelLogic/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# End time: 12:33:36 on May 11,2019, Elapsed time: 0:07:34
+# Errors: 0, Warnings: 2
+# vsim work.tb_kernelLogic 
+# Start time: 12:33:36 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_kernelLogic/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 12:51:39 on May 11,2019, Elapsed time: 0:18:03
+# Errors: 0, Warnings: 2
+# Compile of tb_kernelLogic.sv was successful.
+# Compile of kernelLogic.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_kernelLogic
+# vsim work.tb_kernelLogic 
+# Start time: 12:52:17 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_kernelLogic
+# Loading work.kernelLogic
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_kernelLogic/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 12:57:37 on May 11,2019, Elapsed time: 0:05:20
+# Errors: 0, Warnings: 2

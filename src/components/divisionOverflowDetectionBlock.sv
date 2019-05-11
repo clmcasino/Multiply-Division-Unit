@@ -7,7 +7,7 @@ module divisionOverflowDetectionBlock (divisor,dividend,overflow);
   logic eqDivisor,eqDividend;
 
   always_comb begin //divisor check if =-1
-    if (divisor==-width'd1) begin
+    if (divisor==-1) begin
       eqDivisor<=1'b1;
     end else begin
       eqDivisor<=1'b0;
@@ -15,7 +15,7 @@ module divisionOverflowDetectionBlock (divisor,dividend,overflow);
   end
 
   always_comb begin //dividend check if =-2**(width-1)
-  if (dividend==-width'd2**(width-1)) begin
+  if (dividend==-2**(width-1)) begin
       eqDividend<=1'b1;
     end else begin
       eqDividend<=1'b0;
