@@ -1,0 +1,22 @@
+/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/CSA/tb_csa.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/CSA/tb_csa.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module tb_csa
+
+Top level modules:
+	tb_csa
+
+} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/fullAdder.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/fullAdder.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module fullAdder
+
+Top level modules:
+	fullAdder
+
+} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/carrySaveAdder.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/carrySaveAdder.sv
+Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+-- Compiling module carrySaveAdder
+
+Top level modules:
+	carrySaveAdder
+
+} {} {}}

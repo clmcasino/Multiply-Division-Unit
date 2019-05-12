@@ -1,0 +1,189 @@
+# Loading project tb_csa
+# reading /home/clmcasino/intel_lite/18.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project tb_shiftRegister
+# Compile of tb_shiftRegister.sv failed with 1 errors.
+# Compile of shiftRegister.sv was successful.
+# 2 compiles, 1 failed with 1 error.
+# Compile of tb_shiftRegister.sv was successful.
+# Compile of shiftRegister.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_shiftRegister
+# vsim work.tb_shiftRegister 
+# Start time: 15:59:29 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_shiftRegister
+# Loading work.shiftRegister
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_shiftRegister/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+restart
+# Compile of tb_shiftRegister.sv was successful.
+# Compile of shiftRegister.sv was successful.
+# 2 compiles, 0 failed with no errors.
+quit -sim
+# End time: 16:01:06 on May 11,2019, Elapsed time: 0:01:37
+# Errors: 0, Warnings: 2
+compile *
+# wrong # args: should be "compile w cmd ..."
+# Compile of tb_shiftRegister.sv was successful.
+# Compile of shiftRegister.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_shiftRegister
+# vsim work.tb_shiftRegister 
+# Start time: 16:01:26 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_shiftRegister
+# Loading work.shiftRegister
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_shiftRegister/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+quit -sim
+# End time: 16:03:04 on May 11,2019, Elapsed time: 0:01:38
+# Errors: 0, Warnings: 2
+# Compile of tb_shiftRegister.sv was successful.
+# Compile of shiftRegister.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_shiftRegister
+# vsim work.tb_shiftRegister 
+# Start time: 16:03:23 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_shiftRegister
+# Loading work.shiftRegister
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_shiftRegister/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+quit -sim
+# End time: 16:10:11 on May 11,2019, Elapsed time: 0:06:48
+# Errors: 0, Warnings: 2
+# Compile of tb_shiftRegister.sv was successful.
+# Compile of shiftRegister.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_shiftRegister
+# vsim work.tb_shiftRegister 
+# Start time: 16:10:21 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_shiftRegister
+# Loading work.shiftRegister
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_shiftRegister/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 16:13:16 on May 11,2019, Elapsed time: 0:02:55
+# Errors: 0, Warnings: 2
+# Compile of tb_shiftRegister.sv was successful.
+# Compile of shiftRegister.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_shiftRegister
+# vsim work.tb_shiftRegister 
+# Start time: 16:13:22 on May 11,2019
+# Loading sv_std.std
+# Loading work.tb_shiftRegister
+# Loading work.shiftRegister
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_shiftRegister/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+# End time: 16:14:45 on May 11,2019, Elapsed time: 0:01:23
+# Errors: 0, Warnings: 2

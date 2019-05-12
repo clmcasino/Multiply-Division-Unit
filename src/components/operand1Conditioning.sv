@@ -11,8 +11,8 @@ module operand0Conditioning (signalIn,signalOut,opCode);
   assign signalOut=signal;
 
   always_comb begin
-    if (opCode[2]==1) begin     //if DIVISION is to be performed
-      if (opCode[0]==1) begin   //if UNSIGNED LSB=1
+    if (opCode[2]==1'b1) begin     //if DIVISION is to be performed
+      if (opCode[0]==1'b1) begin   //if UNSIGNED LSB=1
         signal={1'b0,signalIn};
       end else begin            //SIGNED --> sign extension
         signal={signalIn[PAR-1],signalIn};
