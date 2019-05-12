@@ -1,4 +1,4 @@
-module shiftRegister (parallelIn,parallelOut,clk,rst_n,clear,sample_en);
+module register (parallelIn,parallelOut,clk,rst_n,clear,sample_en);
   parameter width = 32;
   input [width-1:0] parallelIn;     //input Sample, as for regular register
   output [width-1:0] parallelOut;   //output Sample, as for regular register

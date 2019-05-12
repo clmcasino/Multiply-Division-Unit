@@ -1,4 +1,4 @@
-module divisionOverflowDetectionBlock (divisor,dividend,overflow);
+module divOvfDetectBlock (divisor,dividend,overflow);
   parameter width = 32;
   input signed [width-1:0] divisor;
   input signed [width-1:0] dividend;
