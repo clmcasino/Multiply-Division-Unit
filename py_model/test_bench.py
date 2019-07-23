@@ -9,7 +9,7 @@ import sys
 sys.path.append(lib)
 import os
 
-from div_models import *
+from div_models_v2 import *
 from mult_models import *
 from in_gen import binStimFileGen
 from bin_lib import *
@@ -84,7 +84,8 @@ if(flag=='y'):
                 b=twos_comp(int(str_num[2],2),len(str_num[2]))
                 qS=quotient_software(a,b)
                 sS=reminder_software(a,b)
-                SRT=SRT_signedDivisor(a,b,32)
+                #SRT=SRT_signedDivisor(a,b,32)
+                SRT=SRTr2_divisor(a,b,32,1,-0.5,0)
                 if SRT!="div0":
                     error=errorCheck(qS,SRT[0]) or errorCheck(sS,SRT[1])
             elif (str_num[0]=="101"): #101--->DIVU
@@ -92,7 +93,8 @@ if(flag=='y'):
                 b=int(str_num[2],2)
                 qS=quotient_software(a,b)
                 sS=reminder_software(a,b)
-                SRT=SRT_unsignedDivisor(a,b,32)
+                #SRT=SRT_unsignedDivisor(a,b,32)
+                SRT=SRTr2_divisor(a,b,32,0,-0.5,0)
                 if SRT!="div0":
                     error=errorCheck(qS,SRT[0]) or errorCheck(sS,SRT[1])
             elif (str_num[0]=="110"): #110--->REM
@@ -100,7 +102,7 @@ if(flag=='y'):
                 b=twos_comp(int(str_num[2],2),len(str_num[2]))
                 qS=quotient_software(a,b)
                 sS=reminder_software(a,b)
-                SRT=SRT_signedDivisor(a,b,32)
+                SRT=SRTr2_divisor(a,b,32,1,-0.5,0)
                 if SRT!="div0":
                     error=errorCheck(qS,SRT[0]) or errorCheck(sS,SRT[1])
             elif (str_num[0]=="111"): #111--->REMU
@@ -108,7 +110,7 @@ if(flag=='y'):
                 b=int(str_num[2],2)
                 qS=quotient_software(a,b)
                 sS=reminder_software(a,b)
-                SRT=SRT_unsignedDivisor(a,b,32)
+                SRT=SRTr2_divisor(a,b,32,0,-0.5,0)
                 if SRT!="div0":
                     error=errorCheck(qS,SRT[0]) or errorCheck(sS,SRT[1])
             if (error):

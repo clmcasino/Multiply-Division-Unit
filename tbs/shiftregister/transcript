@@ -1,0 +1,239 @@
+# Loading project tb_shiftRegister
+# reading /home/clmcasino/intel_lite/18.1/modelsim_ase/linuxaloem/../modelsim.ini
+# Loading project tb_adder
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv failed with 2 errors.
+# 2 compiles, 1 failed with 2 errors.
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:20:25 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_adder/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 18:23:18 on May 13,2019, Elapsed time: 0:02:53
+# Errors: 0, Warnings: 2
+clear
+# [3J[H[2J
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:23:28 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+quit -sim
+# End time: 18:23:32 on May 13,2019, Elapsed time: 0:00:04
+# Errors: 0, Warnings: 1
+comile adder.sv
+# invalid command name "comile"
+compile adder.sv
+# wrong # args: should be "compile w cmd ..."
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:24:11 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_adder/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 18:26:05 on May 13,2019, Elapsed time: 0:01:54
+# Errors: 0, Warnings: 2
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:26:28 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+quit -sim
+# End time: 18:27:27 on May 13,2019, Elapsed time: 0:00:59
+# Errors: 0, Warnings: 1
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+compileall
+# invalid command name "compileall"
+project compileall
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:28:17 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_adder/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+quit -sim
+# End time: 18:29:29 on May 13,2019, Elapsed time: 0:01:12
+# Errors: 0, Warnings: 2
+compileall
+# invalid command name "compileall"
+project compileall
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:29:40 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_adder/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+restart
+add wave sim:/tb_adder/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+quit -sim
+# End time: 18:31:05 on May 13,2019, Elapsed time: 0:01:25
+# Errors: 0, Warnings: 3
+project compileall
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:31:10 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_adder/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+run
+restart
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+quit -sim
+# End time: 18:49:31 on May 13,2019, Elapsed time: 0:18:21
+# Errors: 0, Warnings: 3
+project compileall
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:49:38 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_adder/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+quit -sim
+# End time: 18:53:48 on May 13,2019, Elapsed time: 0:04:10
+# Errors: 0, Warnings: 2
+project compileall
+# Compile of tb_adder.sv was successful.
+# Compile of adder.sv was successful.
+# 2 compiles, 0 failed with no errors.
+vsim work.tb_adder
+# vsim work.tb_adder 
+# Start time: 18:53:54 on May 13,2019
+# Loading sv_std.std
+# Loading work.tb_adder
+# Loading work.adder
+# WARNING: No extended dataflow license exists
+add wave sim:/tb_adder/DUT/*
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run
+run
+# End time: 18:54:09 on May 13,2019, Elapsed time: 0:00:15
+# Errors: 0, Warnings: 2
