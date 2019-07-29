@@ -49,11 +49,11 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.6222811"
-     inkscape:cx="620.75669"
-     inkscape:cy="281.62805"
+     inkscape:zoom="0.82188309"
+     inkscape:cx="673.91871"
+     inkscape:cy="344.80038"
      inkscape:document-units="mm"
-     inkscape:current-layer="layer5"
+     inkscape:current-layer="layer4"
      showgrid="true"
      inkscape:window-width="1366"
      inkscape:window-height="738"
@@ -74,14 +74,15 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
   <g
      inkscape:groupmode="layer"
      id="layer2"
-     inkscape:label="Wires">
+     inkscape:label="Wires"
+     sodipodi:insensitive="true">
     <path
        style="display:inline;opacity:0.98999999;fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 112.44792,37.708334 V 64.166667"
@@ -1532,7 +1533,8 @@
      inkscape:label="Blocks"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0,-87)">
+     transform="translate(0,-87)"
+     sodipodi:insensitive="true">
     <rect
        style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:0.24048363;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect819-3-5-75"
@@ -1924,7 +1926,9 @@
   <g
      inkscape:groupmode="layer"
      id="layer5"
-     inkscape:label="Foil">
+     inkscape:label="Foil"
+     style="display:inline"
+     sodipodi:insensitive="true">
     <rect
        style="display:inline;opacity:1;fill:#2a7fff;fill-opacity:0.47368421;stroke:none;stroke-width:0.47773558;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="rect1431"
@@ -1936,7 +1940,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer3"
-     inkscape:label="NamesBlock">
+     inkscape:label="NamesBlock"
+     sodipodi:insensitive="true">
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:3.52777767px;line-height:1.25;font-family:'Ubuntu Mono';-inkscape-font-specification:'Ubuntu Mono';letter-spacing:0px;word-spacing:0px;fill:#808080;fill-opacity:1;stroke:none;stroke-width:0.26458332"
@@ -2344,7 +2349,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer4"
-     inkscape:label="SignalName">
+     inkscape:label="SignalName"
+     sodipodi:insensitive="true">
     <flowRoot
        xml:space="preserve"
        id="flowRoot1700"
@@ -2818,7 +2824,8 @@
   <g
      inkscape:groupmode="layer"
      id="layer6"
-     inkscape:label="Parallelism">
+     inkscape:label="Parallelism"
+     sodipodi:insensitive="true">
     <path
        style="display:inline;opacity:0.98999999;fill:#ff2a2a;stroke:#ff2a2a;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 101.86458,23.46874 2.64583,-2.64583"

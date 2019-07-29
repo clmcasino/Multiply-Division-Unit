@@ -76,13 +76,7 @@ def SRTr2_divisor(dividend,divisor,inPar,sign_usign_n,thr1,thr2):
         z=dividend/2**(inPar)
         d=divisor/2**(inPar)
 
-    #out of range condition
-    if (z>=0.5 or z<-0.5):
-        s=z
-        correction_flag=True
-    else:
-        s=z*2
-        correction_flag=False
+    s=z*2
 
     #shifting left divisor
     loop_iteration=0
@@ -159,9 +153,9 @@ def SRTr2_divisor(dividend,divisor,inPar,sign_usign_n,thr1,thr2):
         quotient=-quotient
 
     #final correction
-    if (correction_flag):
-        s=s*2
-        quotient=quotient*2
+#    if (correction_flag):
+#        s=s*2
+#        quotient=quotient*2
     if (~sign_usign_n):
         s=s*(2**(inPar+1-loop_iteration))
     else:

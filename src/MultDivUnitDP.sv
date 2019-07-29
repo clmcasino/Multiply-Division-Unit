@@ -294,5 +294,5 @@ module MultDivUnitDP (clk,rst_n,opCode,operand0,operand1,result,res_ready,div_by
                                         .sel(correction_sel),
                                         .out(corrMux_to_rxOp0Adder));
   //adders
-  
+
 endmodule //MultDivUnitDP
