@@ -128,12 +128,12 @@ module DivisorUnit (clk,rst_n,valid,usigned_n,divisor,dividend,reminder,quotient
       correctDown:  if (signD) begin
                       next_state=qInv;
                     end else begin
-                      next_state=remCorrection;
+                      next_state=loadIterLoop;
                     end
       correctUp:  if (signD) begin
                     next_state=qInv;
                   end else begin
-                    next_state=remCorrection;
+                    next_state=loadIterLoop;
                   end
       qInv: next_state=remCorrection;
       remCorrection: if (tc) begin
