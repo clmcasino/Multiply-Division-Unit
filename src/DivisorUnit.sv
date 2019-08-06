@@ -1,9 +1,9 @@
-module DivisorUnit (clk,rst_n,valid,usigned_n,divisor,dividend,reminder,quotient,res_ready);
+module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,res_ready);
   parameter parallelism=32;
   input clk;
   input rst_n;
   input valid;
-  input usigned_n;
+  input usigned;
   input [parallelism-1:0] divisor;
   input [parallelism-1:0] dividend;
   output [parallelism-1:0] reminder;
@@ -56,7 +56,7 @@ module DivisorUnit (clk,rst_n,valid,usigned_n,divisor,dividend,reminder,quotient
   assign res_ready=rr;
   //assigning signs
   always_comb begin
-    if (usigned_n) begin
+    if (usigned) begin
       signZ=1'b0;
       signD=1'b0;
     end else begin
@@ -437,7 +437,7 @@ module DivisorUnit (clk,rst_n,valid,usigned_n,divisor,dividend,reminder,quotient
         leftAddMode=1'b0;
         rightAddMode=1'b0;
         reminder_en=1'b0;
-        reminder_rShift=1'b0;
+        reminder_rShift=1'b1;
         quotient_en=1'b0;
         counterMux_sel=1'b0;
         count_upDown=1'b0;

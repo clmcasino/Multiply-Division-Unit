@@ -15,7 +15,7 @@ module syncCounter (clk,rst_n,clear,parallelLoad,threashold,upDown_n,load_en,cnt
   logic unsigned [WIDTH-1:0] counter;
   logic tc;
   assign parallelOutput = counter;
-  assign terminalCount  = tc; 
+  assign terminalCount  = tc;
   always_ff @(posedge clk, negedge rst_n) begin
     if (~rst_n) begin
       counter={WIDTH{1'b0}};
@@ -26,10 +26,12 @@ module syncCounter (clk,rst_n,clear,parallelLoad,threashold,upDown_n,load_en,cnt
         if (load_en) begin
           counter=parallelLoad;
         end else begin
-          if (upDown_n) begin
-            counter=counter+1;
-          end else begin
-            counter=counter-1;
+          if (cnt_en) begin
+            if (upDown_n) begin
+              counter=counter+1;
+            end else begin
+              counter=counter-1;
+            end
           end
         end
       end

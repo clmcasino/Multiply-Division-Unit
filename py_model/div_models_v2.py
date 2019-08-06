@@ -69,12 +69,8 @@ def SRTr2_divisor(dividend,divisor,inPar,sign_usign_n,thr1,thr2):
         return "div0"
 
     #shifting right (SIGN DEPENDANT)
-    if (~sign_usign_n):
-        z=dividend/2**(inPar+1)
-        d=divisor/2**(inPar+1)
-    else:
-        z=dividend/2**(inPar)
-        d=divisor/2**(inPar)
+    z=dividend/2**(inPar+1)
+    d=divisor/2**(inPar+1)
 
     s=z*2
 
@@ -156,10 +152,8 @@ def SRTr2_divisor(dividend,divisor,inPar,sign_usign_n,thr1,thr2):
 #    if (correction_flag):
 #        s=s*2
 #        quotient=quotient*2
-    if (~sign_usign_n):
-        s=s*(2**(inPar+1-loop_iteration))
-    else:
-        s=s*(2**(inPar-loop_iteration))
+    s=s*(2**(inPar+1-loop_iteration))
+
     res=[]
     res+=[quotient]
     res+=[s]

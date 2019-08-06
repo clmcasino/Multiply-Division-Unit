@@ -5,7 +5,7 @@ module tb_divisorUnit ();
   logic clk;
   logic rst_n;
   logic valid;
-  logic usigned_n;
+  logic usigned;
   logic [parallelism-1:0] divisor;
   logic [parallelism-1:0] dividend;
   logic [parallelism-1:0] reminder;
@@ -17,7 +17,7 @@ module tb_divisorUnit ();
   initial begin
     rst_n=0;
     clk=1;
-    usigned_n=1;
+    usigned=1;
     dividend=8'h75;
     divisor=8'hA;
   end
