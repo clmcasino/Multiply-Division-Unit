@@ -185,9 +185,9 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                               .sel(QCorrectBitMux_sel));
 
   //mux right op right adder
-  mux4to1 #(parallelism) rightOprightAdd_mux (  .inA(~carryL_to_newQBitAdder),
+  mux4to1 #(parallelism) rightOprightAdd_mux (  .inA(carryL_to_newQBitAdder),
                                               .inB(quotientCorrectBit),
-                                              .inC({parallelism{1'b0}}),
+                                              .inC(parallelism{1'b0}),
                                               .inD(),
                                               .sel(rightAddMux_sel),
                                               .out(rightOprightAdd));
@@ -229,7 +229,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                             .rst_n(rst_n),
                             .clear(1'b0),
                             .parallelLoad(counterMux_to_counter),
-                            .threashold({5'b0,1'b1}),
+                            .threashold(6'b0),
                             .upDown_n(count_upDown),
                             .load_en(count_load),
                             .cnt_en(count_en),

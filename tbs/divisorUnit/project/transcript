@@ -1,26 +1,10 @@
 # Loading project tb_divisorUnit
-# Compile of tb_divisorUnit.sv was successful.
-# Compile of DivisorUnit.sv was successful.
-# Compile of DivisorUnitDP.sv was successful.
-# Compile of adder.sv was successful.
-# Compile of carrySaveAdder.sv was successful.
-# Compile of comparator.sv was successful.
-# Compile of divOvfDetectBlock.sv was successful.
-# Compile of divZeroDetect.sv was successful.
-# Compile of fullAdder.sv was successful.
-# Compile of kernelLogic.sv was successful.
-# Compile of mux2to1.sv was successful.
-# Compile of mux4to1.sv was successful.
-# Compile of register.sv was successful.
-# Compile of shiftRegister.sv was successful.
-# Compile of syncCounter.sv was successful.
-# 15 compiles, 0 failed with no errors.
 cd ../../../common
 # reading /home/clmcasino/intel_lite/18.1/modelsim_ase/linuxaloem/../modelsim.ini
 do divisor.do
 # ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:16:24 on Aug 04,2019
+# Start time: 12:21:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
 # -- Compiling module adder
 # -- Compiling module carrySaveAdder
@@ -47,37 +31,118 @@ do divisor.do
 # 	register
 # 	shiftRegister
 # 	syncCounter
-# End time: 12:16:24 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:21:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:16:24 on Aug 04,2019
+# Start time: 12:21:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
 # -- Compiling module DivisorUnit
 # 
 # Top level modules:
 # 	DivisorUnit
-# End time: 12:16:24 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:21:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:16:24 on Aug 04,2019
+# Start time: 12:21:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
 # -- Compiling module DivisorUnitDP
 # 
 # Top level modules:
 # 	DivisorUnitDP
-# End time: 12:16:24 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:21:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 12:16:24 on Aug 04,2019
+# Start time: 12:21:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
 # -- Compiling module tb_divisorUnit
 # 
 # Top level modules:
 # 	tb_divisorUnit
-# End time: 12:16:24 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:21:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
-# Start time: 12:16:24 on Aug 04,2019
+# Start time: 12:21:02 on Aug 06,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# ** Warning: (vsim-3015) ../src/DivisorUnitDP.sv(105): [PCDPC] - Port size (34) does not match connection size (33) for port 'out'. The port definition is at: ../src/components/mux2to1.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_divisorUnit/DUT/divisorDP/sumHMux File: ../src/components/mux2to1.sv
+# ** Warning: (vsim-3015) ../src/DivisorUnitDP.sv(111): [PCDPC] - Port size (34) does not match connection size (33) for port 'parallelIn'. The port definition is at: ../src/components/register.sv(1).
+#    Time: 0 ns  Iteration: 0  Instance: /tb_divisorUnit/DUT/divisorDP/sumH File: ../src/components/register.sv
+# WARNING: No extended dataflow license exists
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:22:59 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 12:22:59 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:22:59 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 12:22:59 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:22:59 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 12:22:59 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:22:59 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 12:23:00 on Aug 06,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# End time: 12:23:00 on Aug 06,2019, Elapsed time: 0:01:58
+# Errors: 0, Warnings: 3
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 12:23:00 on Aug 06,2019
 # Loading sv_std.std
 # Loading ../tbs/divisorUnit/work.tb_divisorUnit
 # Loading ../tbs/divisorUnit/work.DivisorUnit
@@ -95,14 +160,13 @@ do divisor.do
 run
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
 add wave sim:/tb_divisorUnit/DUT/divisorDP/KL/*
-run
 restart
 run
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
 do divisor.do
 # ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:42:01 on Aug 04,2019
+# Start time: 12:47:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
 # -- Compiling module adder
 # -- Compiling module carrySaveAdder
@@ -129,39 +193,39 @@ do divisor.do
 # 	register
 # 	shiftRegister
 # 	syncCounter
-# End time: 10:42:01 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:47:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:42:01 on Aug 04,2019
+# Start time: 12:47:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
 # -- Compiling module DivisorUnit
 # 
 # Top level modules:
 # 	DivisorUnit
-# End time: 10:42:01 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:47:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:42:01 on Aug 04,2019
+# Start time: 12:47:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
 # -- Compiling module DivisorUnitDP
 # 
 # Top level modules:
 # 	DivisorUnitDP
-# End time: 10:42:01 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:47:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 10:42:01 on Aug 04,2019
+# Start time: 12:47:02 on Aug 06,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
 # -- Compiling module tb_divisorUnit
 # 
 # Top level modules:
 # 	tb_divisorUnit
-# End time: 10:42:01 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:47:02 on Aug 06,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 10:42:01 on Aug 04,2019, Elapsed time: -1:-34:-23
+# End time: 12:47:03 on Aug 06,2019, Elapsed time: 0:24:03
 # Errors: 0, Warnings: 3
 # vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
-# Start time: 10:42:01 on Aug 04,2019
+# Start time: 12:47:03 on Aug 06,2019
 # Loading sv_std.std
 # Loading ../tbs/divisorUnit/work.tb_divisorUnit
 # Loading ../tbs/divisorUnit/work.DivisorUnit
@@ -178,13 +242,226 @@ do divisor.do
 # WARNING: No extended dataflow license exists
 run
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:49:49 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 12:49:49 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:49:49 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 12:49:49 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:49:49 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 12:49:49 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 12:49:49 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 12:49:49 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 12:49:49 on Aug 06,2019, Elapsed time: 0:02:46
+# Errors: 0, Warnings: 2
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 12:49:49 on Aug 06,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:46:05 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 13:46:05 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:46:06 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 13:46:06 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:46:06 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# ** Error: (vlog-13069) ../src/DivisorUnitDP.sv(190): near "{": syntax error, unexpected '{', expecting ')'.
+# End time: 13:46:06 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 1, Warnings: 0
+# ** Error: /home/clmcasino/intel_lite/18.1/modelsim_ase/linuxaloem/vlog failed.
+# Error in macro ./divisor.do line 5
+# /home/clmcasino/intel_lite/18.1/modelsim_ase/linuxaloem/vlog failed.
+#     while executing
+# "vlog -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv"
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:46:55 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 13:46:56 on Aug 06,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:46:56 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 13:46:56 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:46:56 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 13:46:56 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 13:46:56 on Aug 06,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 13:46:56 on Aug 06,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 13:46:56 on Aug 06,2019, Elapsed time: 0:57:07
+# Errors: 4, Warnings: 2
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 13:46:56 on Aug 06,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
+run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+run
+run 186 ns
 quit -sim
-# End time: 11:06:30 on Aug 04,2019, Elapsed time: 0:24:29
+# End time: 11:22:38 on Aug 08,2019, Elapsed time: 45:35:42
 # Errors: 0, Warnings: 2
 do divisor.do
 # ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:06:41 on Aug 04,2019
+# Start time: 11:22:50 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
 # -- Compiling module adder
 # -- Compiling module carrySaveAdder
@@ -211,37 +488,37 @@ do divisor.do
 # 	register
 # 	shiftRegister
 # 	syncCounter
-# End time: 11:06:41 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 11:22:50 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:06:41 on Aug 04,2019
+# Start time: 11:22:50 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
 # -- Compiling module DivisorUnit
 # 
 # Top level modules:
 # 	DivisorUnit
-# End time: 11:06:41 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 11:22:50 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:06:41 on Aug 04,2019
+# Start time: 11:22:50 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
 # -- Compiling module DivisorUnitDP
 # 
 # Top level modules:
 # 	DivisorUnitDP
-# End time: 11:06:41 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 11:22:50 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:06:41 on Aug 04,2019
+# Start time: 11:22:50 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
 # -- Compiling module tb_divisorUnit
 # 
 # Top level modules:
 # 	tb_divisorUnit
-# End time: 11:06:41 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 11:22:50 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
-# Start time: 11:06:41 on Aug 04,2019
+# Start time: 11:22:50 on Aug 08,2019
 # Loading sv_std.std
 # Loading ../tbs/divisorUnit/work.tb_divisorUnit
 # Loading ../tbs/divisorUnit/work.DivisorUnit
@@ -256,12 +533,93 @@ do divisor.do
 # Loading ../tbs/divisorUnit/work.syncCounter
 # Loading ../tbs/divisorUnit/work.fullAdder
 # WARNING: No extended dataflow license exists
-run
+# ** Error: (vish-4014) No objects found matching '/tb_divisorUnit/DUT/divisorDP/dividor'.
+# Error in macro ./divisor.do line 13
+# (vish-4014) No objects found matching '/tb_divisorUnit/DUT/divisorDP/dividor'.
+#     while executing
+# "add wave sim:/tb_divisorUnit/DUT/divisorDP/dividor"
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:23:36 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 11:23:36 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:23:36 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 11:23:36 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:23:36 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 11:23:36 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:23:36 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 11:23:36 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:23:36 on Aug 08,2019, Elapsed time: 0:00:46
+# Errors: 3, Warnings: 1
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 11:23:36 on Aug 08,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
 do divisor.do
 # ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:35:54 on Aug 04,2019
+# Start time: 12:59:38 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
 # -- Compiling module adder
 # -- Compiling module carrySaveAdder
@@ -288,39 +646,39 @@ do divisor.do
 # 	register
 # 	shiftRegister
 # 	syncCounter
-# End time: 11:35:54 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:59:38 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:35:54 on Aug 04,2019
+# Start time: 12:59:38 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
 # -- Compiling module DivisorUnit
 # 
 # Top level modules:
 # 	DivisorUnit
-# End time: 11:35:54 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:59:38 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:35:54 on Aug 04,2019
+# Start time: 12:59:38 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
 # -- Compiling module DivisorUnitDP
 # 
 # Top level modules:
 # 	DivisorUnitDP
-# End time: 11:35:54 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:59:38 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:35:54 on Aug 04,2019
+# Start time: 12:59:38 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
 # -- Compiling module tb_divisorUnit
 # 
 # Top level modules:
 # 	tb_divisorUnit
-# End time: 11:35:54 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 12:59:39 on Aug 08,2019, Elapsed time: 0:00:01
 # Errors: 0, Warnings: 0
-# End time: 11:35:54 on Aug 04,2019, Elapsed time: 0:29:13
+# End time: 12:59:39 on Aug 08,2019, Elapsed time: 1:36:03
 # Errors: 0, Warnings: 2
 # vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
-# Start time: 11:35:54 on Aug 04,2019
+# Start time: 12:59:39 on Aug 08,2019
 # Loading sv_std.std
 # Loading ../tbs/divisorUnit/work.tb_divisorUnit
 # Loading ../tbs/divisorUnit/work.DivisorUnit
@@ -335,14 +693,11 @@ do divisor.do
 # Loading ../tbs/divisorUnit/work.syncCounter
 # Loading ../tbs/divisorUnit/work.fullAdder
 # WARNING: No extended dataflow license exists
-# A time value could not be extracted from the current line
-# A time value could not be extracted from the current line
-run
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
 do divisor.do
 # ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:43:26 on Aug 04,2019
+# Start time: 22:42:07 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
 # -- Compiling module adder
 # -- Compiling module carrySaveAdder
@@ -369,39 +724,39 @@ do divisor.do
 # 	register
 # 	shiftRegister
 # 	syncCounter
-# End time: 11:43:26 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 22:42:07 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:43:26 on Aug 04,2019
+# Start time: 22:42:08 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
 # -- Compiling module DivisorUnit
 # 
 # Top level modules:
 # 	DivisorUnit
-# End time: 11:43:26 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 22:42:08 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:43:26 on Aug 04,2019
+# Start time: 22:42:08 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
 # -- Compiling module DivisorUnitDP
 # 
 # Top level modules:
 # 	DivisorUnitDP
-# End time: 11:43:26 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 22:42:08 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 11:43:26 on Aug 04,2019
+# Start time: 22:42:08 on Aug 08,2019
 # vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
 # -- Compiling module tb_divisorUnit
 # 
 # Top level modules:
 # 	tb_divisorUnit
-# End time: 11:43:26 on Aug 04,2019, Elapsed time: 0:00:00
+# End time: 22:42:08 on Aug 08,2019, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
-# End time: 11:43:27 on Aug 04,2019, Elapsed time: 0:07:33
+# End time: 22:42:08 on Aug 08,2019, Elapsed time: 9:42:29
 # Errors: 0, Warnings: 2
 # vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
-# Start time: 11:43:27 on Aug 04,2019
+# Start time: 22:42:08 on Aug 08,2019
 # Loading sv_std.std
 # Loading ../tbs/divisorUnit/work.tb_divisorUnit
 # Loading ../tbs/divisorUnit/work.DivisorUnit
@@ -416,5 +771,399 @@ do divisor.do
 # Loading ../tbs/divisorUnit/work.syncCounter
 # Loading ../tbs/divisorUnit/work.fullAdder
 # WARNING: No extended dataflow license exists
-run
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:51:06 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 22:51:06 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:51:06 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 22:51:06 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:51:06 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 22:51:07 on Aug 08,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:51:07 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 22:51:07 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 22:51:07 on Aug 08,2019, Elapsed time: 0:08:59
+# Errors: 0, Warnings: 2
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 22:51:07 on Aug 08,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:54:09 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 22:54:09 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:54:09 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 22:54:09 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:54:09 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 22:54:10 on Aug 08,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:54:10 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 22:54:10 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 22:54:10 on Aug 08,2019, Elapsed time: 0:03:03
+# Errors: 0, Warnings: 2
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 22:54:10 on Aug 08,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
+# ** Error: (vish-4014) No objects found matching '/tb_divisorUnit/DUT/divisorDP/newQBitAdder_to_carry'.
+# Error in macro ./divisor.do line 37
+# (vish-4014) No objects found matching '/tb_divisorUnit/DUT/divisorDP/newQBitAdder_to_carry'.
+#     while executing
+# "add wave sim:/tb_divisorUnit/DUT/divisorDP/newQBitAdder_to_carry"
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:55:02 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 22:55:02 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:55:02 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 22:55:02 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:55:02 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 22:55:02 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 22:55:02 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 22:55:02 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 22:55:02 on Aug 08,2019, Elapsed time: 0:00:52
+# Errors: 3, Warnings: 1
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 22:55:02 on Aug 08,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:01:20 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 23:01:20 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:01:20 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 23:01:20 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:01:20 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 23:01:20 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:01:20 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# ** Warning: ../tbs/divisorUnit/tb_divisorUnit.sv(22): (vlog-2600) [RDGN] - Redundant digits in numeric literal.
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 23:01:20 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 1
+# End time: 23:01:20 on Aug 08,2019, Elapsed time: 0:06:18
+# Errors: 0, Warnings: 3
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 23:01:20 on Aug 08,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+do divisor.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/divisorUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:03:26 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 23:03:27 on Aug 08,2019, Elapsed time: 0:00:01
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:03:27 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnit.sv 
+# -- Compiling module DivisorUnit
+# 
+# Top level modules:
+# 	DivisorUnit
+# End time: 23:03:27 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:03:27 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../src/DivisorUnitDP.sv 
+# -- Compiling module DivisorUnitDP
+# 
+# Top level modules:
+# 	DivisorUnitDP
+# End time: 23:03:27 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 23:03:27 on Aug 08,2019
+# vlog -reportprogress 300 -work ../tbs/divisorUnit/work ../tbs/divisorUnit/tb_divisorUnit.sv 
+# -- Compiling module tb_divisorUnit
+# 
+# Top level modules:
+# 	tb_divisorUnit
+# End time: 23:03:27 on Aug 08,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 23:03:27 on Aug 08,2019, Elapsed time: 0:02:07
+# Errors: 0, Warnings: 2
+# vsim -c ../tbs/divisorUnit/work.tb_divisorUnit 
+# Start time: 23:03:27 on Aug 08,2019
+# Loading sv_std.std
+# Loading ../tbs/divisorUnit/work.tb_divisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnit
+# Loading ../tbs/divisorUnit/work.DivisorUnitDP
+# Loading ../tbs/divisorUnit/work.shiftRegister
+# Loading ../tbs/divisorUnit/work.register
+# Loading ../tbs/divisorUnit/work.kernelLogic
+# Loading ../tbs/divisorUnit/work.mux2to1
+# Loading ../tbs/divisorUnit/work.carrySaveAdder
+# Loading ../tbs/divisorUnit/work.mux4to1
+# Loading ../tbs/divisorUnit/work.adder
+# Loading ../tbs/divisorUnit/work.syncCounter
+# Loading ../tbs/divisorUnit/work.fullAdder
+# WARNING: No extended dataflow license exists
 # ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.

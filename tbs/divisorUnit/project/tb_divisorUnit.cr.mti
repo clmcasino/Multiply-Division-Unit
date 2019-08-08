@@ -5,13 +5,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	divOvfDetectBlock
 
-} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/DivisorUnit.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/DivisorUnit.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module DivisorUnit
-
-Top level modules:
-	DivisorUnit
-
 } {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/fullAdder.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/fullAdder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module fullAdder
@@ -25,13 +18,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 
 Top level modules:
 	divZeroDetect
-
-} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/DivisorUnitDP.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/DivisorUnitDP.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module DivisorUnitDP
-
-Top level modules:
-	DivisorUnitDP
 
 } {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/kernelLogic.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/kernelLogic.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
@@ -82,13 +68,6 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	register
 
-} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/carrySaveAdder.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/carrySaveAdder.sv
-Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module carrySaveAdder
-
-Top level modules:
-	carrySaveAdder
-
 } {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/adder.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/adder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
 -- Compiling module adder
@@ -96,11 +75,11 @@ Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  
 Top level modules:
 	adder
 
-} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/divisorUnit/tb_divisorUnit.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/divisorUnit/tb_divisorUnit.sv
+} {} {}} /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/carrySaveAdder.sv {1 {vlog -work work -sv -stats=none /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/src/components/carrySaveAdder.sv
 Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
--- Compiling module tb_divisorUnit
+-- Compiling module carrySaveAdder
 
 Top level modules:
-	tb_divisorUnit
+	carrySaveAdder
 
 } {} {}}

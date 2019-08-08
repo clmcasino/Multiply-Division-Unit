@@ -17,9 +17,9 @@ module tb_divisorUnit ();
   initial begin
     rst_n=0;
     clk=1;
-    usigned=1;
-    dividend=8'h75;
-    divisor=8'hA;
+    usigned=0;
+    dividend=32'h75;
+    divisor=32'hFFFFFFF6;
   end
 
   initial begin
