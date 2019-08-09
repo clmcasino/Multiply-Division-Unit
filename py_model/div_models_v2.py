@@ -126,32 +126,20 @@ def SRTr2_divisor(dividend,divisor,inPar,sign_usign_n,thr1,thr2):
             else:
                 quotient=quotient
 
-    #correction of result
-    if(d>0):
-        if(((s>0) and (z<0)) or ((s<0) and (z>0))):
-            if(((s>0) and (d<0)) or ((s<0) and (d>0))):
-                s=s+d
-                quotient=quotient-1
-            else:
-                s=s-d
-                quotient=quotient+1
-    else:
-        if(((s>0) and (z<0)) or ((s<0) and (z>0))):
-            if(((s>0) and (d<0)) or ((s<0) and (d>0))):
-                s=s+d
-                quotient=quotient+1
-            else:
-                s=s-d
-                quotient=quotient-1
-
+    #era messo dopo, importante messo qui
     #sign of q correction
     if (divisor<0):
         quotient=-quotient
 
+    if(((s>0) and (z<0)) or ((s<0) and (z>0))):
+        if(((s>0) and (d<0)) or ((s<0) and (d>0))):
+            s=s+d
+            quotient=quotient-1
+        else:
+            s=s-d
+            quotient=quotient+1
+
     #final correction
-#    if (correction_flag):
-#        s=s*2
-#        quotient=quotient*2
     s=s*(2**(inPar+1-loop_iteration))
 
     res=[]

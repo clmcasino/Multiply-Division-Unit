@@ -35,5 +35,10 @@ add wave sim:/tb_divisorUnit/DUT/divisorDP/sumL_to_newQBitAdder
 add wave sim:/tb_divisorUnit/DUT/divisorDP/newQBitAdder_to_sumL
 add wave sim:/tb_divisorUnit/DUT/divisorDP/carryL_to_newQBitAdder
 add wave sim:/tb_divisorUnit/DUT/divisorDP/newQBitAdder_to_carryL
+add wave sim:/tb_divisorUnit/DUT/divisorDP/quotientCorrectBit
+add wave sim:/tb_divisorUnit/DUT/divisorDP/rightOprightAdd
+add wave sim:/tb_divisorUnit/DUT/divisorDP/reminderOutReg
+add wave sim:/tb_divisorUnit/DUT/signS
+add wave sim:/tb_divisorUnit/DUT/signZ
 
 run 186 ns

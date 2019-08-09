@@ -111,7 +111,11 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
                       end else begin
                         next_state=divKernelStep;
                       end
-      computeQ: next_state=waitSignals;
+      computeQ: if (signD) begin
+                  next_state=qInv;
+                end else begin
+                  next_state=waitSignals;
+                end
       waitSignals:  if (signS ^ signZ) begin
                       if (signS ^ signD) begin
                         next_state=correctDown;
@@ -119,23 +123,19 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
                         next_state=correctUp;
                       end
                     end else begin
-                      if (signD) begin
-                        next_state=qInv;
-                      end else begin
-                        next_state=remCorrection;
-                      end
-                    end
-      correctDown:  if (signD) begin
-                      next_state=qInv;
-                    end else begin
                       next_state=remCorrection;
                     end
-      correctUp:  if (signD) begin
-                    next_state=qInv;
-                  end else begin
-                    next_state=remCorrection;
-                  end
-      qInv: next_state=remCorrection;
+      qInv: if (signS ^ signZ) begin
+              if (signS ^ signD) begin
+                next_state=correctDown;
+              end else begin
+                next_state=correctUp;
+              end
+            end else begin
+              next_state=remCorrection;
+            end
+      correctDown: next_state=remCorrection;
+      correctUp:  next_state=remCorrection;
       remCorrection: if (tc) begin
                         next_state=divDone;
                       end else begin
@@ -407,7 +407,7 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
         sum_en=1'b0;
         carry_en=1'b0;
         leftAddMux_sel=2'b00;
-        rightAddMux_sel=2'b11;
+        rightAddMux_sel=2'b10;
         QCorrectBitMux_sel=1'b0;
         leftAddMode=1'b0;
         rightAddMode=1'b1;

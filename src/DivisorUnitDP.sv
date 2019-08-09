@@ -165,7 +165,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                               .out(leftOpleftAdd),
                                               .sel(leftAddMux_sel));
   //mux right operand left adder
-  mux4to1 #(parallelism+1) rightOpleftAdd_mux (  .inA(csaCarry_to_outReg[parallelism:0]),
+  mux4to1 #(parallelism+1) rightOpleftAdd_mux (  .inA({csaCarry_to_outReg[parallelism-1:0],1'b0}),
                                               .inB({parallelism+1{1'b0}}), //remember to set input carry
                                               .inC(reminderOutReg),
                                               .inD(reminderOutReg),

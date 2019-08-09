@@ -18,8 +18,8 @@ module tb_divisorUnit ();
     rst_n=0;
     clk=1;
     usigned=0;
-    dividend=32'h75;
-    divisor=32'hFFFFFFF6;
+    dividend=32'hFFFFFF8B;
+    divisor=32'hA;
   end
 
   initial begin
