@@ -1,0 +1,20 @@
+# compile verilog/system verilog design source files
+sv xil_defaultlib  \
+"../../../../../../../src/DivisorUnit.sv" \
+"../../../../../../../src/DivisorUnitDP.sv" \
+"../../../../../../../src/components/adder.sv" \
+"../../../../../../../src/components/carrySaveAdder.sv" \
+"../../../../../../../src/components/fullAdder.sv" \
+"../../../../../../../src/components/kernelLogic.sv" \
+"../../../../../../../src/components/mux2to1.sv" \
+"../../../../../../../src/components/mux4to1.sv" \
+"../../../../../../../src/components/register.sv" \
+"../../../../../../../src/components/shiftRegister.sv" \
+"../../../../../../../src/components/syncCounter.sv" \
+"../../../../../tb_divisorUnit.sv" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

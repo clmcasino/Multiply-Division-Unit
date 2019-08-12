@@ -80,9 +80,6 @@ def SRTr2_divisor(dividend,divisor,inPar,sign_usign_n,thr1,thr2):
         loop_iteration+=1
         d=d*2
 
-    if loop_iteration==0:
-        loop_iteration=1
-
     #standard iterations
     q=""
     if(d>0):

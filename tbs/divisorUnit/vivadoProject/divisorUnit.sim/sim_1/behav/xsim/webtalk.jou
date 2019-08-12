@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1.1 (64-bit)
+# SW Build 2580384 on Sat Jun 29 08:04:45 MDT 2019
+# IP Build 2579722 on Sat Jun 29 11:35:40 MDT 2019
+# Start of session at: Sat Aug 10 12:54:43 2019
+# Process ID: 3027
+# Current directory: /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/divisorUnit/vivadoProject/divisorUnit.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/divisorUnit/vivadoProject/divisorUnit.sim/sim_1/behav/xsim/xsim.dir/tb_divisorUnit_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/divisorUnit/vivadoProject/divisorUnit.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/divisorUnit/vivadoProject/divisorUnit.sim/sim_1/behav/xsim/webtalk.jou
+#-----------------------------------------------------------
+source /home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/tbs/divisorUnit/vivadoProject/divisorUnit.sim/sim_1/behav/xsim/xsim.dir/tb_divisorUnit_behav/webtalk/xsim_webtalk.tcl -notrace

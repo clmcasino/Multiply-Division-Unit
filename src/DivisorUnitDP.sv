@@ -68,14 +68,14 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
 
   //dividing by 2 if datas are unsigned
   assign signCorrection_to_DivisorReg = (usigned) ? {1'b0,divisor[parallelism-1:0]} : {divisor[parallelism-1],divisor[parallelism-1:0]};
-assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:0]} : {dividend[parallelism-1],dividend[parallelism-1:0]};
+  assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:0]} : {dividend[parallelism-1],dividend[parallelism-1:0]};
 
   //divisor shift register
   shiftRegister #(parallelism+1) divisorRegister (  .parallelIn(signCorrection_to_DivisorReg),
                                                     .parallelOut(divisor_to_kernelLogic),
                                                     .clk(clk),
                                                     .rst_n(rst_n),
-                                                    .clear(1'b0),
+                                                    .clear(csa_clear),
                                                     .sample_en(divisor_en),
                                                     .shiftLeft(divisor_lShift),
                                                     .shiftRight(1'b0),
@@ -87,7 +87,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                                   .parallelOut(notDivisor_to_kernelLogic),
                                                   .clk(clk),
                                                   .rst_n(rst_n),
-                                                  .clear(1'b0),
+                                                  .clear(csa_clear),
                                                   .sample_en(notDivisor_en));
 
   kernelLogic #(.parallelism(parallelism)) KL ( .data(divisor_to_kernelLogic),
@@ -102,7 +102,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                                 .d_MSB(signCorrection_to_DivisorReg[parallelism]));
 
   //mux access to sumH 34 bits
-  mux2to1 #(parallelism+2) sumHMux ( .inA({signCorrection_to_DividendReg,1'b0}), //multiplied by two
+  mux2to1 #(parallelism+2) sumHMux ( .inA({signCorrection_to_DividendReg,1'b0}), //we need to multiply *2
                                     .inB({csaSum_to_outReg[parallelism:0],1'b0}),
                                     .out(dividendMux_to_sumHReg),
                                     .sel(sumHMux_sel));
@@ -221,7 +221,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                   .clear(1'b0),
                                   .sample_en(quotient_en));
   //counter module
-  mux2to1 #(6) counterMux (  .inA(6'b000001),
+  mux2to1 #(6) counterMux (  .inA(6'b000000),
                               .inB(counterRegOut), //remember to set input carry
                               .out(counterMux_to_counter),
                               .sel(counterMux_sel));

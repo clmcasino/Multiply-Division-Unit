@@ -1,6 +1,12 @@
 #!/usr/bin/python3
 
+#must be run inside py_model directory
+
 lib="../py_lib"
+
+divisorSampleFile="../common/divisorInSample.txt"
+divisorHWResults="../common/divisorHWResults.txt"
+divisorLogFile="../common/divisorLogFile.txt"
 sampleFile="../common/inSample.txt"
 logFile="../common/logFile.txt"
 numSample=200000
@@ -8,6 +14,7 @@ numSample=200000
 import sys
 sys.path.append(lib)
 import os
+import subprocess
 
 from div_models_v2 import *
 from mult_models import *
@@ -35,7 +42,7 @@ def errorCheck(a,b):
 
 #Generation of stimuli as <funct3> <op0> <op1>
 flag=input("Do yo want to create a new inmput stimuli file?(Y/n)\n")
-if(flag=='n'):
+if(flag=='n' or flag=='N'):
     pass
 else:
     print("File with {} stimuli will be created as {}!".format(numSample,sampleFile))
@@ -49,7 +56,7 @@ else:
 
 #Check the models
 flag=input("Do yo want to check the models?(y/N)\n")
-if(flag=='y'):
+if(flag=='y' or flag=='Y'):
     print("Models will be checked!")
     with open(sampleFile,"r") as fin_pointer, open(logFile,"w") as log_pointer:
         i=0
@@ -131,3 +138,61 @@ if(flag=='y'):
         print("Yeeeee, at least we understood something!")
     else:
         print("Ops, we have {} mistakes".format(i))
+
+#Check divisor hardware
+flag=input("Do yo want to check the divisor hardware?(y/N)\n")
+if (flag=='y' or flag=='Y'):
+    flag=input("Do yo want to create a new inmput stimuli file?(y/N)\n")
+    if (flag=='y' or flag=='Y'):
+        print("File with {} stimuli will be created as {}!".format(numSample,divisorSampleFile))
+        #firstly we create two file, second are samples while first is just if samples
+        #have to be interpreted signed or unsigned
+        binStimFileGen("temp0",numSample,1,False,1,1,'')
+        binStimFileGen("temp1",numSample,2,True,32,32,' ')
+        lines=0
+        #merge the two file
+        with open("temp0","r") as pointer0, open("temp1","r") as pointer1, open(divisorSampleFile,"w") as fout_pointer:
+            for line1, line2 in zip(pointer0,pointer1):
+                nums=line2.split()
+                if (int(nums[1],2)==0):
+                    pass
+                else:
+                    fout_pointer.write(line1[0:len(line1)-1]+' '+line2)
+                    lines+=1
+        print("File with {} stimuli has been created as {}!".format(lines,divisorSampleFile))
+        os.remove("temp0")
+        os.remove("temp1")
+    subprocess.call(["vsim", "-c", "-do", "../common/sim/divisorNOGUI.do"])
+    with open(divisorSampleFile,"r") as fin_pointer, open(divisorHWResults,"r") as hwres_pointer, open(divisorLogFile,"w") as log_pointer:
+        i=1
+        error_count=0
+        for line_in, line_hwres in zip(fin_pointer,hwres_pointer):
+            str_in=line_in.split()
+            str_hwres=line_hwres.split()
+            if (str_in[0]=='0'):          #signed case
+                a=twos_comp(int(str_in[1],2),len(str_in[1]))
+                b=twos_comp(int(str_in[2],2),len(str_in[2]))
+                qS=quotient_software(a,b)
+                sS=reminder_software(a,b)
+                qH=twos_comp(int(str_hwres[0],2),len(str_hwres[0]))
+                sH=twos_comp(int(str_hwres[1],2),len(str_hwres[1]))
+            else:                       #unsigned case
+                a=int(str_in[1],2)
+                b=int(str_in[2],2)
+                qS=quotient_software(a,b)
+                sS=reminder_software(a,b)
+                qH=int(str_hwres[0],2)
+                sH=int(str_hwres[1],2)
+            error=errorCheck(qS,qH) or errorCheck(sS,sH)
+            if (error):
+                error_count+=1
+                log_pointer.write("MISTAKE #{}\tINSTRUCTION {}\n".format(i,str_in[0]))
+                log_pointer.write("Sample  :\t {} \t {}\n".format(a,b))
+                log_pointer.write("Expected:\t {} \t {}\n".format(qS,sS))
+                log_pointer.write("Had:     \t {} \t {}\n".format(qH,sH))
+                log_pointer.write("\n")
+            i+=1
+        if(error_count==0):
+            print("Yeeeee! The divisor seems working!")
+        else:
+            print("Ops! There are {} mistakes, please check the log file".format(error_count))

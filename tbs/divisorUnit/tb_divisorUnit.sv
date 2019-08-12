@@ -14,18 +14,50 @@ module tb_divisorUnit ();
 
   DivisorUnit #(parallelism) DUT (.*);
 
+  always #5 clk=~clk;
+
+  //Clock and reset release
   initial begin
-    rst_n=0;
-    clk=1;
-    usigned=0;
-    dividend=32'hFFFFFF8B;
-    divisor=32'hA;
+    valid=0;
+    clk=0;
+    rst_n=0; //Clock low at time zero
+    @(posedge clk);
+    @(posedge clk);
+    rst_n=1;
   end
 
+  integer fin_pointer,fout_pointer;
+  string s;
   initial begin
-    #1 rst_n=1;
-    #2 valid=1'b1;
+    @(posedge rst_n);
+    @(posedge clk);
+    `ifdef NO_GUI
+      usigned=1;
+      dividend=32'b10011111010110101000011110110000;
+      divisor=32'b10101101110011000010001000001001 ;
+      valid=1;
+      @(posedge clk);
+      valid=0;
+      @(posedge res_ready);
+      @(posedge clk);
+      $stop;
+    `else
+      fin_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/divisorInSample.txt","r");
+      fout_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/divisorHWResults.txt","w");
+      while (! $feof(fin_pointer)) begin
+        $fscanf(fin_pointer,"%b",usigned);
+        $fscanf(fin_pointer,"%b",dividend);
+        $fscanf(fin_pointer,"%b",divisor);
+        valid=1;
+        @(posedge clk);
+        valid=0;
+        @(posedge res_ready);
+        $fwrite(fout_pointer,"%b %b\n",quotient,reminder);
+        @(posedge clk);
+      end
+      $finish;
+      $fclose(fin_pointer);
+      $fclose(fout_pointer);
+    `endif
   end
-
-  always #1 clk=~clk;
 endmodule //tb_adder

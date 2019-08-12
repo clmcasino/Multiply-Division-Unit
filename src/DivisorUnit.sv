@@ -12,7 +12,6 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
 
   enum bit [3:0]{   idle          =4'b0000,
                     loadData      =4'b0001,
-                    loadCnt1      =4'b0010,
                     divisorLShift =4'b0011,
                     saveIterLoop  =4'b0100,
                     divKernelStep =4'b0101,
@@ -51,6 +50,7 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
   logic signD;
   logic signZ;
   logic divisorReady;
+  logic load1;
   logic rr;
 
   assign res_ready=rr;
@@ -65,9 +65,18 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
     end
   end
 
-  //divisor magnitude
+  //divisor magnitude for lShift
   always_comb begin
-    if (magnitudeD[1] ^ magnitudeD[0]) begin
+    if (divisor[parallelism-1] & usigned) begin
+      load1=1'b1;
+    end else begin
+      load1=1'b0;
+    end
+  end
+
+  //divisor magnitude for loadCnt1
+  always_comb begin
+    if (magnitudeD[0] ^ magnitudeD[1]) begin
       divisorReady=1'b1;
     end else begin
       divisorReady=1'b0;
@@ -94,12 +103,11 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
             end else begin
               next_state=idle;
             end
-      loadData: if (divisorReady) begin
-                  next_state=loadCnt1;
+      loadData: if (load1) begin
+                  next_state=saveIterLoop;
                 end else begin
                   next_state=divisorLShift;
                 end
-      loadCnt1: next_state=saveIterLoop;
       divisorLShift:  if (divisorReady) begin
                         next_state=saveIterLoop;
                       end else begin
@@ -192,31 +200,6 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
         counterMux_sel=1'b0;
         count_upDown=1'b0;
         count_load=1'b0;
-        count_en=1'b0;
-        counterReg_en=1'b0;
-        csa_clear=1'b0;
-        rr=1'b0;
-      end
-
-      loadCnt1:begin
-        divisor_en=1'b0;
-        divisor_lShift=1'b1;
-        notDivisor_en=1'b0;
-        saveReminder=1'b0;
-        sumHMux_sel=1'b0;
-        sum_en=1'b0;
-        carry_en=1'b0;
-        leftAddMux_sel=2'b00;
-        rightAddMux_sel=2'b00;
-        QCorrectBitMux_sel=1'b0;
-        leftAddMode=1'b0;
-        rightAddMode=1'b0;
-        reminder_en=1'b0;
-        reminder_rShift=1'b0;
-        quotient_en=1'b0;
-        counterMux_sel=1'b0;
-        count_upDown=1'b0;
-        count_load=1'b1;
         count_en=1'b0;
         counterReg_en=1'b0;
         csa_clear=1'b0;
