@@ -60,7 +60,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
   logic [parallelism-1:0] rightOprightAdd;
   logic [parallelism-1:0] quotientCorrectBit;
   logic [parallelism-1:0] rightAdder_to_outReg;
-  logic [parallelism:0] reminderOutReg;
+  logic [parallelism+1:0] reminderOutReg;
   logic [5:0] counterMux_to_counter;
   logic [5:0] counterOut_to_counterReg;
   logic [5:0] counterRegOut;
@@ -169,8 +169,8 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
   //mux right operand left adder
   mux4to1 #(parallelism+1) rightOpleftAdd_mux (  .inA({csaCarry_to_outReg[parallelism-1:0],1'b0}),
                                               .inB({parallelism+1{1'b0}}), //remember to set input carry
-                                              .inC(reminderOutReg),
-                                              .inD(reminderOutReg),
+                                              .inC(reminderOutReg[parallelism+1:1]),
+                                              .inD(reminderOutReg[parallelism+1:1]),
                                               .out(rightOpleftAdd),
                                               .sel(leftAddMux_sel));
   //mux left operand right adder
@@ -204,7 +204,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                     .carry_in(rightAddMode),
                                     .sum(rightAdder_to_outReg));
   //reminder
-  shiftRegister #(parallelism+1) reminderRegister (  .parallelIn({leftAdder_to_outReg}),
+  shiftRegister #(parallelism+2) reminderRegister (  .parallelIn({leftAdder_to_outReg,1'b0}),
                                                     .parallelOut(reminderOutReg),
                                                     .clk(clk),
                                                     .rst_n(rst_n),
@@ -212,8 +212,8 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                                     .sample_en(reminder_en),
                                                     .shiftLeft(1'b0),
                                                     .shiftRight(reminder_rShift),
-                                                    .newBit(reminderOutReg[parallelism]));
-  assign signS = (reminderOutReg[parallelism]);
+                                                    .newBit(reminderOutReg[parallelism+1]));
+  assign signS = (reminderOutReg[parallelism+1]);
   assign reminder = (reminderOutReg[parallelism-1:0]);
   //quotient
   register #(parallelism) quotientReg (  .parallelIn(rightAdder_to_outReg),
