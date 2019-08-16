@@ -102,7 +102,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                                 .d_MSB(signCorrection_to_DivisorReg[parallelism]));
 
   //mux access to sumH 34 bits
-  mux2to1 #(parallelism+2) sumHMux ( .inA({signCorrection_to_DividendReg,1'b0}), //we need to multiply *2
+  mux2to1 #(parallelism+2) sumHMux ( .inA({signCorrection_to_DividendReg[parallelism],signCorrection_to_DividendReg}), //we need to multiply *2
                                     .inB({csaSum_to_outReg[parallelism:0],1'b0}),
                                     .out(dividendMux_to_sumHReg),
                                     .sel(sumHMux_sel));
@@ -117,6 +117,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
   //if it's the last step we need to divide by 2
   // since it was already done automatically at the previous step
   assign sum_to_csa = (saveReminder) ? {sumH_to_cond[parallelism+1],sumH_to_cond[parallelism+1:1]} : sumH_to_cond;
+
 
   //sumL register
   register #(parallelism) sumL (  .parallelIn(newQBitAdder_to_sumL),
@@ -139,6 +140,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
   //if it's the last step we need to divide by 2
   // since it was already done automatically at the previous step
   assign carry_to_csa = (saveReminder) ? {carryH_to_cond[parallelism+1],carryH_to_cond[parallelism+1:1]} : carryH_to_cond;
+
 
   //carryL register
   register #(parallelism) carryL (  .parallelIn(newQBitAdder_to_carryL),
@@ -202,7 +204,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                     .carry_in(rightAddMode),
                                     .sum(rightAdder_to_outReg));
   //reminder
-  shiftRegister #(parallelism+1) reminderRegister (  .parallelIn(leftAdder_to_outReg),
+  shiftRegister #(parallelism+1) reminderRegister (  .parallelIn({leftAdder_to_outReg}),
                                                     .parallelOut(reminderOutReg),
                                                     .clk(clk),
                                                     .rst_n(rst_n),
@@ -221,7 +223,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                   .clear(1'b0),
                                   .sample_en(quotient_en));
   //counter module
-  mux2to1 #(6) counterMux (  .inA(6'b000000),
+  mux2to1 #(6) counterMux (  .inA(6'b000001),
                               .inB(counterRegOut), //remember to set input carry
                               .out(counterMux_to_counter),
                               .sel(counterMux_sel));

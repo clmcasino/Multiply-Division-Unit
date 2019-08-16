@@ -199,7 +199,7 @@ module DivisorUnit (clk,rst_n,valid,usigned,divisor,dividend,reminder,quotient,r
         quotient_en=1'b0;
         counterMux_sel=1'b0;
         count_upDown=1'b0;
-        count_load=1'b0;
+        count_load=1'b1;
         count_en=1'b0;
         counterReg_en=1'b0;
         csa_clear=1'b0;

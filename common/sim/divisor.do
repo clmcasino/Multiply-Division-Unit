@@ -12,8 +12,9 @@ add wave sim:/tb_divisorUnit/DUT/divisorDP/clk
 add wave sim:/tb_divisorUnit/DUT/divisorDP/usigned
 add wave sim:/tb_divisorUnit/DUT/divisorDP/divisor
 add wave sim:/tb_divisorUnit/DUT/divisorDP/dividend
-add wave sim:/tb_divisorUnit/DUT/divisorDP/reminder
 add wave sim:/tb_divisorUnit/DUT/divisorDP/quotient
+add wave sim:/tb_divisorUnit/DUT/divisorDP/reminder
+add wave sim:/tb_divisorUnit/DUT/divisorDP/reminderOutReg
 add wave sim:/tb_divisorUnit/DUT/divisorDP/signCorrection_to_DivisorReg
 add wave sim:/tb_divisorUnit/DUT/divisorDP/divisor_to_kernelLogic
 add wave sim:/tb_divisorUnit/DUT/divisorDP/divisor_en
