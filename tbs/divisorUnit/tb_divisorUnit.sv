@@ -32,9 +32,9 @@ module tb_divisorUnit ();
     @(posedge rst_n);
     @(posedge clk);
     `ifdef NO_GUI
-      usigned=1;
-      dividend=32'b10011111010110101000011110110000;
-      divisor=32'b10101101110011000010001000001001 ;
+      usigned=0;
+      dividend=32'b00000000001101011100110010000000;
+      divisor=32'b11110000001101011001010101110111;
       valid=1;
       @(posedge clk);
       valid=0;

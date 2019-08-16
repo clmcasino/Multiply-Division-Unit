@@ -48,5 +48,7 @@ add wave sim:/tb_divisorUnit/DUT/divisorReady
 add wave sim:/tb_divisorUnit/DUT/divisorDP/counterOut_to_counterReg
 add wave sim:/tb_divisorUnit/DUT/divisorDP/counterMux_to_counter
 add wave sim:/tb_divisorUnit/DUT/divisorDP/counterRegOut
+add wave sim:/tb_divisorUnit/DUT/divisorDP/KL/tempU 
+add wave sim:/tb_divisorUnit/DUT/divisorDP/KL/temp
 
 run -all

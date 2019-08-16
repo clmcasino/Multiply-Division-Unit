@@ -2,7 +2,7 @@
 
 #must be run inside py_model directory
 
-lib="../py_lib"
+
 
 divisorSampleFile="../common/divisorInSample.txt"
 divisorHWResults="../common/divisorHWResults.txt"
@@ -12,6 +12,7 @@ logFile="../common/logFile.txt"
 numSample=200000
 
 import sys
+lib="../py_lib"
 sys.path.append(lib)
 import os
 import subprocess

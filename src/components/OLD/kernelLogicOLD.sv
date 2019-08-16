@@ -16,12 +16,10 @@ module kernelLogic (data,notData,saveReminder,opCode,sumMSBs,carryMSBs,SignSel,N
   logic signD;
 
   //divisionControl combinatory logic
-  logic unsigned [csaBits-1:0] tempU;
-  logic signed [csaBits-1:0] temp;
+  logic signed [csaBits:0] temp;
   always_comb begin
     //I'm doing a sum but actually is implemented as a PLA or LUT;
-    tempU=($unsigned(sumMSBs))+($unsigned(carryMSBs));
-    temp=($signed(tempU));
+    temp=($signed(sumMSBs))+($signed(carryMSBs));
     if (temp<-2) begin
       divisionControl=2'b00;
     end else if (temp>=0) begin
