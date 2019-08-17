@@ -1,6 +1,6 @@
 module kernelLogic (data,notData,saveReminder,opCode,sumMSBs,carryMSBs,SignSel,Non0,outData,d_MSB);
   parameter parallelism=32;
-  parameter csaBits=4;
+  parameter csaBits=5;
   input [parallelism:0] data;
   input [parallelism:0] notData;
   input saveReminder;

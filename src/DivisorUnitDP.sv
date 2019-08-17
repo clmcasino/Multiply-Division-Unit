@@ -38,21 +38,21 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
   logic [parallelism:0] divisor_to_kernelLogic;
   logic [parallelism:0] notDivisor_to_kernelLogic;
   logic [parallelism:0] leftAdder_to_outReg;
-  logic [parallelism+1:0] sumH_to_cond;
+  logic [parallelism+2:0] sumH_to_cond;
   logic SignSel;
   logic Non0;
   logic newNQ;
   logic newQ;
   logic [parallelism:0] kl_to_csa;
   logic [parallelism+1:0] csaSum_to_outReg;
-  logic [parallelism+1:0] dividendMux_to_sumHReg;
+  logic [parallelism+2:0] dividendMux_to_sumHReg;
   logic [parallelism-1:0] newQBitAdder_to_sumL;
   logic [parallelism-1:0] sumL_to_newQBitAdder;
   logic [parallelism-1:0] newQBitAdder_to_carryL;
   logic [parallelism-1:0] carryL_to_newQBitAdder;
   logic [parallelism+1:0] sum_to_csa;
   logic [parallelism+1:0] csaCarry_to_outReg;
-  logic [parallelism+1:0] carryH_to_cond;
+  logic [parallelism+2:0] carryH_to_cond;
   logic [parallelism+1:0] carry_to_csa;
   logic [parallelism:0] leftOpleftAdd;
   logic [parallelism:0] rightOpleftAdd;
@@ -94,21 +94,21 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                                 .notData(notDivisor_to_kernelLogic),
                                                 .saveReminder(saveReminder),
                                                 .opCode({2'b11,usigned}),
-                                                .sumMSBs(sumH_to_cond[parallelism+1:parallelism-2]), //4 in this case
-                                                .carryMSBs(carryH_to_cond[parallelism+1:parallelism-2]),
+                                                .sumMSBs(sumH_to_cond[parallelism+2:parallelism-2]), //4 in this case
+                                                .carryMSBs(carryH_to_cond[parallelism+2:parallelism-2]),
                                                 .SignSel(SignSel),
                                                 .Non0(Non0),
                                                 .outData(kl_to_csa),
                                                 .d_MSB(signCorrection_to_DivisorReg[parallelism]));
 
-  //mux access to sumH 34 bits
-  mux2to1 #(parallelism+2) sumHMux ( .inA({signCorrection_to_DividendReg[parallelism],signCorrection_to_DividendReg}), //we need to multiply *2
-                                    .inB({csaSum_to_outReg[parallelism:0],1'b0}),
+  //mux access to sumH 35 bits (3.32)
+  mux2to1 #(parallelism+3) sumHMux ( .inA({signCorrection_to_DividendReg[parallelism],signCorrection_to_DividendReg[parallelism],signCorrection_to_DividendReg}), //we need to multiply *2
+                                    .inB({csaSum_to_outReg[parallelism+1:0],1'b0}),
                                     .out(dividendMux_to_sumHReg),
                                     .sel(sumHMux_sel));
 
   //sumH register
-  register #(parallelism+2) sumH (  .parallelIn(dividendMux_to_sumHReg),
+  register #(parallelism+3) sumH (  .parallelIn(dividendMux_to_sumHReg),
                                     .parallelOut(sumH_to_cond),
                                     .clk(clk),
                                     .rst_n(rst_n),
@@ -116,7 +116,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                     .sample_en(sum_en));
   //if it's the last step we need to divide by 2
   // since it was already done automatically at the previous step
-  assign sum_to_csa = (saveReminder) ? {sumH_to_cond[parallelism+1],sumH_to_cond[parallelism+1:1]} : sumH_to_cond;
+  assign sum_to_csa = (saveReminder) ? {sumH_to_cond[parallelism+2:1]} : sumH_to_cond[parallelism+1:0];
 
 
   //sumL register
@@ -130,7 +130,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
   assign newQBitAdder_to_sumL = {sumL_to_newQBitAdder[parallelism-2:0],newQ};
 
   //carryH register
-  register #(parallelism+2) carryH (  .parallelIn({csaCarry_to_outReg[parallelism-1:0],2'b0}),
+  register #(parallelism+3) carryH (  .parallelIn({csaCarry_to_outReg[parallelism:0],2'b0}),
                                     .parallelOut(carryH_to_cond),
                                     .clk(clk),
                                     .rst_n(rst_n),
@@ -139,7 +139,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
 
   //if it's the last step we need to divide by 2
   // since it was already done automatically at the previous step
-  assign carry_to_csa = (saveReminder) ? {carryH_to_cond[parallelism+1],carryH_to_cond[parallelism+1:1]} : carryH_to_cond;
+  assign carry_to_csa = (saveReminder) ? {carryH_to_cond[parallelism+2:1]} : carryH_to_cond[parallelism+1:0];
 
 
   //carryL register

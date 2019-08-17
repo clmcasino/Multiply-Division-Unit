@@ -46,7 +46,7 @@ module tb_divisorUnit ();
       fout_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/divisorHWResults.txt","w");
       while (! $feof(fin_pointer)) begin
         $fscanf(fin_pointer,"%b",usigned);
-        $fscanf(fin_pointer,"%b",dividend);
+      $fscanf(fin_pointer,"%b",dividend);
         $fscanf(fin_pointer,"%b",divisor);
         valid=1;
         @(posedge clk);
@@ -54,7 +54,7 @@ module tb_divisorUnit ();
         @(posedge res_ready);
         $fwrite(fout_pointer,"%b %b\n",quotient,reminder);
         @(posedge clk);
-      end
+    end
       $finish;
       $fclose(fin_pointer);
       $fclose(fout_pointer);
