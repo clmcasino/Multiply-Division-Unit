@@ -60,7 +60,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
   logic [parallelism-1:0] rightOprightAdd;
   logic [parallelism-1:0] quotientCorrectBit;
   logic [parallelism-1:0] rightAdder_to_outReg;
-  logic [parallelism:0] reminderOutReg;
+  logic [parallelism+1:0] reminderOutReg;
   logic [5:0] counterMux_to_counter;
   logic [5:0] counterOut_to_counterReg;
   logic [5:0] counterRegOut;
@@ -68,14 +68,14 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
 
   //dividing by 2 if datas are unsigned
   assign signCorrection_to_DivisorReg = (usigned) ? {1'b0,divisor[parallelism-1:0]} : {divisor[parallelism-1],divisor[parallelism-1:0]};
-assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:0]} : {dividend[parallelism-1],dividend[parallelism-1:0]};
+  assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:0]} : {dividend[parallelism-1],dividend[parallelism-1:0]};
 
   //divisor shift register
   shiftRegister #(parallelism+1) divisorRegister (  .parallelIn(signCorrection_to_DivisorReg),
                                                     .parallelOut(divisor_to_kernelLogic),
                                                     .clk(clk),
                                                     .rst_n(rst_n),
-                                                    .clear(1'b0),
+                                                    .clear(csa_clear),
                                                     .sample_en(divisor_en),
                                                     .shiftLeft(divisor_lShift),
                                                     .shiftRight(1'b0),
@@ -87,7 +87,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                                   .parallelOut(notDivisor_to_kernelLogic),
                                                   .clk(clk),
                                                   .rst_n(rst_n),
-                                                  .clear(1'b0),
+                                                  .clear(csa_clear),
                                                   .sample_en(notDivisor_en));
 
   kernelLogic #(.parallelism(parallelism)) KL ( .data(divisor_to_kernelLogic),
@@ -102,7 +102,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                                 .d_MSB(signCorrection_to_DivisorReg[parallelism]));
 
   //mux access to sumH 34 bits
-  mux2to1 #(parallelism+2) sumHMux ( .inA({signCorrection_to_DividendReg,1'b0}), //multiplied by two
+  mux2to1 #(parallelism+2) sumHMux ( .inA({signCorrection_to_DividendReg[parallelism],signCorrection_to_DividendReg}), //we need to multiply *2
                                     .inB({csaSum_to_outReg[parallelism:0],1'b0}),
                                     .out(dividendMux_to_sumHReg),
                                     .sel(sumHMux_sel));
@@ -117,6 +117,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
   //if it's the last step we need to divide by 2
   // since it was already done automatically at the previous step
   assign sum_to_csa = (saveReminder) ? {sumH_to_cond[parallelism+1],sumH_to_cond[parallelism+1:1]} : sumH_to_cond;
+
 
   //sumL register
   register #(parallelism) sumL (  .parallelIn(newQBitAdder_to_sumL),
@@ -139,6 +140,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
   //if it's the last step we need to divide by 2
   // since it was already done automatically at the previous step
   assign carry_to_csa = (saveReminder) ? {carryH_to_cond[parallelism+1],carryH_to_cond[parallelism+1:1]} : carryH_to_cond;
+
 
   //carryL register
   register #(parallelism) carryL (  .parallelIn(newQBitAdder_to_carryL),
@@ -165,10 +167,10 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                               .out(leftOpleftAdd),
                                               .sel(leftAddMux_sel));
   //mux right operand left adder
-  mux4to1 #(parallelism+1) rightOpleftAdd_mux (  .inA(csaCarry_to_outReg[parallelism:0]),
+  mux4to1 #(parallelism+1) rightOpleftAdd_mux (  .inA({csaCarry_to_outReg[parallelism-1:0],1'b0}),
                                               .inB({parallelism+1{1'b0}}), //remember to set input carry
-                                              .inC(reminderOutReg),
-                                              .inD(reminderOutReg),
+                                              .inC(reminderOutReg[parallelism+1:1]),
+                                              .inD(reminderOutReg[parallelism+1:1]),
                                               .out(rightOpleftAdd),
                                               .sel(leftAddMux_sel));
   //mux left operand right adder
@@ -185,9 +187,9 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                               .sel(QCorrectBitMux_sel));
 
   //mux right op right adder
-  mux4to1 #(parallelism) rightOprightAdd_mux (  .inA(carryL_to_newQBitAdder),
+  mux4to1 #(parallelism) rightOprightAdd_mux (  .inA(~carryL_to_newQBitAdder),
                                               .inB(quotientCorrectBit),
-                                              .inC(parallelism{1'b0}),
+                                              .inC({parallelism{1'b0}}),
                                               .inD(),
                                               .sel(rightAddMux_sel),
                                               .out(rightOprightAdd));
@@ -202,7 +204,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                     .carry_in(rightAddMode),
                                     .sum(rightAdder_to_outReg));
   //reminder
-  shiftRegister #(parallelism+1) reminderRegister (  .parallelIn(leftAdder_to_outReg),
+  shiftRegister #(parallelism+2) reminderRegister (  .parallelIn({leftAdder_to_outReg,1'b0}),
                                                     .parallelOut(reminderOutReg),
                                                     .clk(clk),
                                                     .rst_n(rst_n),
@@ -210,8 +212,8 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                                                     .sample_en(reminder_en),
                                                     .shiftLeft(1'b0),
                                                     .shiftRight(reminder_rShift),
-                                                    .newBit(reminderOutReg[parallelism]));
-  assign signS = (reminderOutReg[parallelism]);
+                                                    .newBit(reminderOutReg[parallelism+1]));
+  assign signS = (reminderOutReg[parallelism+1]);
   assign reminder = (reminderOutReg[parallelism-1:0]);
   //quotient
   register #(parallelism) quotientReg (  .parallelIn(rightAdder_to_outReg),
@@ -229,7 +231,7 @@ assign signCorrection_to_DividendReg = (usigned) ? {1'b0,dividend[parallelism-1:
                             .rst_n(rst_n),
                             .clear(1'b0),
                             .parallelLoad(counterMux_to_counter),
-                            .threashold(6'b0),
+                            .threashold({5'b0,1'b1}),
                             .upDown_n(count_upDown),
                             .load_en(count_load),
                             .cnt_en(count_en),
