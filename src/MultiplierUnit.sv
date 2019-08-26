@@ -1,4 +1,4 @@
-module DivisorUnit (clk,rst_n,valid,usigned,multiplier,multiplicand,product,res_ready);
+module MultiplierUnit (clk,rst_n,valid,usigned,multiplier,multiplicand,product,res_ready);
   parameter parallelism=32;
   input clk;
   input rst_n;
@@ -19,7 +19,6 @@ module DivisorUnit (clk,rst_n,valid,usigned,multiplier,multiplicand,product,res_
   logic csa_clear;
   logic multiplicand_en;
   logic notMultiplicand_en;
-  logic saveProduct;
   logic sumMux_sel;
   logic sum_en;
   logic carry_en;
@@ -27,6 +26,7 @@ module DivisorUnit (clk,rst_n,valid,usigned,multiplier,multiplicand,product,res_
   logic count_en;
   logic tc;
   logic rr;
+  logic prod_en;
 
   assign res_ready=rr;
 
@@ -62,6 +62,78 @@ module DivisorUnit (clk,rst_n,valid,usigned,multiplier,multiplicand,product,res_
 
   always_comb begin
     case (present_state)
+      idle: begin
+        csa_clear=1'b1;
+        multiplicand_en=1'b0;
+        notMultiplicand_en=1'b0;
+        sumMux_sel=1'b0;
+        sum_en=1'b0;
+        carry_en=1'b0;
+        leftAddMux_sel=1'b0;
+        count_en=1'b0;
+        prod_en=1'b0;
+        rr=1'b0;
+      end
+      save_muliplicand: begin
+        csa_clear=1'b0;
+        multiplicand_en=1'b1;
+        notMultiplicand_en=1'b0;
+        sumMux_sel=1'b0;
+        sum_en=1'b0;
+        carry_en=1'b0;
+        leftAddMux_sel=1'b0;
+        count_en=1'b0;
+        prod_en=1'b0;
+        rr=1'b0;
+      end
+      save_mulitplier: begin
+        csa_clear=1'b0;
+        multiplicand_en=1'b0;
+        notMultiplicand_en=1'b1;
+        sumMux_sel=1'b0;
+        sum_en=1'b1;
+        carry_en=1'b0;
+        leftAddMux_sel=1'b0;
+        count_en=1'b0;
+        prod_en=1'b0;
+        rr=1'b0;
+      end
+      multKernelStep: begin
+        csa_clear=1'b0;
+        multiplicand_en=1'b0;
+        notMultiplicand_en=1'b1;
+        sumMux_sel=1'b1;
+        sum_en=1'b1;
+        carry_en=1'b1;
+        leftAddMux_sel=1'b0;
+        count_en=1'b1;
+        prod_en=1'b0;
+        rr=1'b0;
+      end
+      save_product: begin
+        csa_clear=1'b0;
+        multiplicand_en=1'b0;
+        notMultiplicand_en=1'b0;
+        sumMux_sel=1'b0;
+        sum_en=1'b0;
+        carry_en=1'b0;
+        leftAddMux_sel=1'b1;
+        count_en=1'b0;
+        prod_en=1'b1;
+        rr=1'b0;
+      end
+      multDone: begin
+        csa_clear=1'b0;
+        multiplicand_en=1'b0;
+        notMultiplicand_en=1'b0;
+        sumMux_sel=1'b0;
+        sum_en=1'b0;
+        carry_en=1'b0;
+        leftAddMux_sel=1'b0;
+        count_en=1'b0;
+        prod_en=1'b0;
+        rr=1'b1;
+      end
     endcase
   end
-  
+endmodule

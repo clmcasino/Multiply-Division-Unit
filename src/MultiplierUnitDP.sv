@@ -1,4 +1,4 @@
-module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_clear,multiplicand_en,notMultiplicand_en,saveProduct,sumMux_sel,sum_en,carry_en,leftAddMux_sel,count_en,tc);
+module MultiplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_clear,multiplicand_en,notMultiplicand_en,sumMux_sel,sum_en,carry_en,leftAddMux_sel,count_en,prod_en,tc);
   parameter parallelism=32;
   input clk;
   input rst_n;
@@ -10,12 +10,12 @@ module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_cle
   input csa_clear;
   input multiplicand_en;
   input notMultiplicand_en;
-  input saveProduct;
   input sumMux_sel;
   input sum_en;
   input carry_en;
   input leftAddMux_sel;
   input count_en;
+  input prod_en;
   output tc;
 
   //signals
@@ -29,13 +29,12 @@ module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_cle
   logic [parallelism:0] firstPP;
   logic [parallelism:0] csaSum_to_outReg;
   logic [parallelism:0] multiplicandMux_to_sumHReg;
-  logic [parallelism:0] sumH_to_csa;
+  logic [parallelism:0] sum_to_csa;
   logic [parallelism+1:0] sumLMux_to_sumLReg;
   logic [parallelism:0] csaCarry_to_outReg;
   logic [parallelism:0] carry_to_csa;
   logic [parallelism:0] leftOpleftAdd;
   logic [parallelism:0] rightOpleftAdd;
-  logic carry;
   logic [parallelism-1:0] prodL;
   logic [parallelism-1:0] prodH;
   //dividing by 2 if datas are unsigned
@@ -59,7 +58,7 @@ module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_cle
 
   kernelLogic #(.parallelism(parallelism)) KL ( .data(multiplicand_to_kernelLogic),
                                                 .notData(notMultiplicand_to_kernelLogic),
-                                                .saveReminder(saveProduct),
+                                                .saveReminder(1'b0),
                                                 .opCode({3'b0}),
                                                 .sumMSBs(5'b0),
                                                 .carryMSBs(5'b0),
@@ -67,25 +66,25 @@ module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_cle
                                                 .SignSel(),
                                                 .Non0(),
                                                 .outData(kl_to_csa),
-                                                .d_MSB(1'b0);
+                                                .d_MSB(1'b0));
   //sumHMux
   mux2to1 #(parallelism+1) sumHMux ( .inA({firstPP[parallelism],firstPP[parallelism:1]}), //first partial product /2
                                     .inB({csaSum_to_outReg[parallelism],csaSum_to_outReg[parallelism:1]}),
                                     .out(multiplicandMux_to_sumHReg),
                                     .sel(sumMux_sel));
 
-  assign firstPP = (signCorrection_to_MultiplierReg[0]) ? notMultiplicand_to_kernelLogic : {parallelism+1{1'b0}};
+  assign firstPP = (signCorrection_to_MultiplierReg[0]) ? leftAdder_to_outReg : {parallelism+1{1'b0}};
 
   //sumH register
   register #(parallelism+1) sumH (  .parallelIn(multiplicandMux_to_sumHReg),
-                                    .parallelOut(sumH_to_csa),
+                                    .parallelOut(sum_to_csa),
                                     .clk(clk),
                                     .rst_n(rst_n),
                                     .clear(csa_clear),
                                     .sample_en(sum_en));
   //sumLMux
-  mux2to1 #(parallelism+1) sumLMux ( .inA({firstPP[0],signCorrection_to_MultiplierReg}), //first partial product /2
-                                    .inB({csaSum_to_outReg[0],sumL_to_newSumL[parallelism+1,1]}),
+  mux2to1 #(parallelism+2) sumLMux ( .inA({firstPP[0],signCorrection_to_MultiplierReg}), //first partial product /2
+                                    .inB({csaSum_to_outReg[0],sumL_to_newSumL[parallelism+1:1]}),
                                     .out(sumLMux_to_sumLReg),
                                     .sel(sumMux_sel));
 
@@ -113,14 +112,14 @@ module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_cle
                                       .carry(csaCarry_to_outReg));
 
   //muxleft operand left adder
-  mux2to1 #(parallelism+1) leftOpleftAdd_mux (  .inA(~multiplicand_to_kernelLogic),
-                                              .inB({1'b0,carry_to_csa[parallelism-3:0],1'b0}),
+  mux2to1 #(parallelism+1) leftOpleftAdd_mux (  .inA(~signCorrection_to_MultipicandReg),
+                                              .inB({1'b0,carry_to_csa[parallelism-2:0],1'b0}),
                                               .out(leftOpleftAdd),
                                               .sel(leftAddMux_sel));
 
   //muxright operand left adder
   mux2to1 #(parallelism+1) rightOpleftAdd_mux ( .inA(33'b1),
-                                              .inB({1'b0,sum_to_csa[parallelism-3:0],sumL_to_newSumL[parallelism+1]}),
+                                              .inB({1'b0,sum_to_csa[parallelism-2:0],sumL_to_newSumL[parallelism+1]}),
                                               .out(rightOpleftAdd),
                                               .sel(leftAddMux_sel));
 
@@ -138,7 +137,7 @@ module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_cle
                                         .sample_en(prod_en));
 
   //prod register
-  register #(parallelism) prodHReg (  .parallelIn(rightOpleftAdd[parallelism-1,0]),
+  register #(parallelism) prodHReg (  .parallelIn(leftAdder_to_outReg[parallelism-1:0]),
                                         .parallelOut(prodH),
                                         .clk(clk),
                                         .rst_n(rst_n),
@@ -157,3 +156,4 @@ module MulplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_cle
                             .cnt_en(count_en),
                             .terminalCount(tc),
                             .parallelOutput());
+endmodule

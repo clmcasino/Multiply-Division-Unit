@@ -42,7 +42,7 @@ module tb_divisorUnit ();
       @(posedge clk);
       $stop;
     `else
-      fin_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/divisorInSample.txt","r");
+      fin_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/harmInSample.txt","r");
       fout_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/divisorHWResults.txt","w");
       while (! $feof(fin_pointer)) begin
         $fscanf(fin_pointer,"%b",usigned);
