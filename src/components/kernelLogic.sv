@@ -1,4 +1,4 @@
-module kernelLogic (data,notData,saveReminder,opCode,sumMSBs,carryMSBs,SignSel,Non0,outData,d_MSB);
+module kernelLogic (data,notData,saveReminder,opCode,sumMSBs,carryMSBs,multDecisionBits,SignSel,Non0,outData,d_MSB);
   parameter parallelism=32;
   parameter csaBits=5;
   input [parallelism:0] data;
@@ -7,6 +7,7 @@ module kernelLogic (data,notData,saveReminder,opCode,sumMSBs,carryMSBs,SignSel,N
   input [2:0] opCode;
   input [csaBits-1:0] sumMSBs;
   input [csaBits-1:0] carryMSBs;
+  input [1:0] multDecisionBits;
   input d_MSB;
   output SignSel;
   output Non0;
@@ -96,9 +97,9 @@ module kernelLogic (data,notData,saveReminder,opCode,sumMSBs,carryMSBs,SignSel,N
         //assigning by default SignSel and Non0
         SS=1'b0;
         N0=1'b0;
-        case (sumMSBs[csaBits-1:csaBits-2])
-          2'b10: oData=data; //should be data
-          2'b01: oData=notData; // should be notData
+        case (multDecisionBits)
+          2'b10: oData=notData; //should be data
+          2'b01: oData=data; // should be notData
           default: oData={parallelism{1'b0}};
         endcase
       end

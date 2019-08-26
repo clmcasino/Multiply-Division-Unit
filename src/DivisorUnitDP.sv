@@ -96,6 +96,7 @@ module DivisorUnitDP (clk,rst_n,usigned,divisor,dividend,reminder,quotient,divis
                                                 .opCode({2'b11,usigned}),
                                                 .sumMSBs(sumH_to_cond[parallelism+2:parallelism-2]), //4 in this case
                                                 .carryMSBs(carryH_to_cond[parallelism+2:parallelism-2]),
+                                                .multDecisionBits(),
                                                 .SignSel(SignSel),
                                                 .Non0(Non0),
                                                 .outData(kl_to_csa),
