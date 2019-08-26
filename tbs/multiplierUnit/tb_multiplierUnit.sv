@@ -32,31 +32,31 @@ module tb_multiplierUnit ();
     @(posedge clk);
     `ifdef GUI
       usigned=0;
-      multiplicand=32'h16;
-      multiplier=32'hFFFFFFEB;
+      multiplicand=32'b10110011101101110010111010111011;
+      multiplier=32'b11000101110101111011110111100000000;
       valid=1;
       @(posedge clk);
       valid=0;
       @(posedge res_ready);
       @(posedge clk);
       $stop;
-  `else
-    fin_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/harmInSample.txt","r");
-    fout_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/multiplierHWResults.txt","w");
-    while (! $feof(fin_pointer)) begin
-      $fscanf(fin_pointer,"%b",usigned);
-      $fscanf(fin_pointer,"%b",multiplicand);
-      $fscanf(fin_pointer,"%b",multiplier);
-      valid=1;
-      @(posedge clk);
-      valid=0;
-      @(posedge res_ready);
-      $fwrite(fout_pointer,"%b\n",product);
-      @(posedge clk);
-    end
-    $finish;
-    $fclose(fin_pointer);
-    $fclose(fout_pointer);
-  `endif
+    `else
+      fin_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/harmInSample.txt","r");
+      fout_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/multiplierHWResults.txt","w");
+      while (! $feof(fin_pointer)) begin
+        $fscanf(fin_pointer,"%b",usigned);
+        $fscanf(fin_pointer,"%b",multiplicand);
+        $fscanf(fin_pointer,"%b",multiplier);
+        valid=1;
+        @(posedge clk);
+        valid=0;
+        @(posedge res_ready);
+        $fwrite(fout_pointer,"%b\n",product);
+        @(posedge clk);
+      end
+      $finish;
+      $fclose(fin_pointer);
+      $fclose(fout_pointer);
+    `endif
   end
 endmodule

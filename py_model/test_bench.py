@@ -4,9 +4,11 @@
 
 
 
-divisorSampleFile="../common/divisorInSample.txt"
+harmSampleFile="../common/harmInSample.txt"
 divisorHWResults="../common/divisorHWResults.txt"
+multiplierHWResults="../common/multiplierHWResults.txt"
 divisorLogFile="../common/divisorLogFile.txt"
+multiplierLogFile="../common/multiplierLogFile.txt"
 sampleFile="../common/inSample.txt"
 logFile="../common/logFile.txt"
 numSample=200000
@@ -140,19 +142,19 @@ if(flag=='y' or flag=='Y'):
     else:
         print("Ops, we have {} mistakes".format(i))
 
-#Check divisor hardware
-flag=input("Do yo want to check the divisor hardware?(y/N)\n")
+#Check single harm hardware
+flag=input("Do yo want to check a single harm hardware?(y/N)\n")
 if (flag=='y' or flag=='Y'):
-    flag=input("Do yo want to create a new inmput stimuli file?(y/N)\n")
+    flag=input("Do yo want to create a new input stimuli file?(y/N)\n")
     if (flag=='y' or flag=='Y'):
-        print("File with {} stimuli will be created as {}!".format(numSample,divisorSampleFile))
+        print("File with {} stimuli will be created as {}!".format(numSample,harmSampleFile))
         #firstly we create two file, second are samples while first is just if samples
         #have to be interpreted signed or unsigned
         binStimFileGen("temp0",numSample,1,False,1,1,'')
         binStimFileGen("temp1",numSample,2,True,32,32,' ')
         lines=0
         #merge the two file
-        with open("temp0","r") as pointer0, open("temp1","r") as pointer1, open(divisorSampleFile,"w") as fout_pointer:
+        with open("temp0","r") as pointer0, open("temp1","r") as pointer1, open(harmSampleFile,"w") as fout_pointer:
             for line1, line2 in zip(pointer0,pointer1):
                 nums=line2.split()
                 if (int(nums[1],2)==0):
@@ -160,40 +162,74 @@ if (flag=='y' or flag=='Y'):
                 else:
                     fout_pointer.write(line1[0:len(line1)-1]+' '+line2)
                     lines+=1
-        print("File with {} stimuli has been created as {}!".format(lines,divisorSampleFile))
+        print("File with {} stimuli has been created as {}!".format(lines,harmSampleFile))
         os.remove("temp0")
         os.remove("temp1")
-    subprocess.call(["vsim", "-c", "-do", "../common/sim/divisorNOGUI.do"])
-    with open(divisorSampleFile,"r") as fin_pointer, open(divisorHWResults,"r") as hwres_pointer, open(divisorLogFile,"w") as log_pointer:
-        i=1
-        error_count=0
-        for line_in, line_hwres in zip(fin_pointer,hwres_pointer):
-            str_in=line_in.split()
-            str_hwres=line_hwres.split()
-            if (str_in[0]=='0'):          #signed case
-                a=twos_comp(int(str_in[1],2),len(str_in[1]))
-                b=twos_comp(int(str_in[2],2),len(str_in[2]))
-                qS=quotient_software(a,b)
-                sS=reminder_software(a,b)
-                qH=twos_comp(int(str_hwres[0],2),len(str_hwres[0]))
-                sH=twos_comp(int(str_hwres[1],2),len(str_hwres[1]))
-            else:                       #unsigned case
-                a=int(str_in[1],2)
-                b=int(str_in[2],2)
-                qS=quotient_software(a,b)
-                sS=reminder_software(a,b)
-                qH=int(str_hwres[0],2)
-                sH=int(str_hwres[1],2)
-            error=errorCheck(qS,qH) or errorCheck(sS,sH)
-            if (error):
-                error_count+=1
-                log_pointer.write("MISTAKE #{}\tINSTRUCTION {}\n".format(i,str_in[0]))
-                log_pointer.write("Sample  :\t {} \t {}\n".format(a,b))
-                log_pointer.write("Expected:\t {} \t {}\n".format(qS,sS))
-                log_pointer.write("Had:     \t {} \t {}\n".format(qH,sH))
-                log_pointer.write("\n")
-            i+=1
-        if(error_count==0):
-            print("Yeeeee! The divisor seems working!")
-        else:
-            print("Ops! There are {} mistakes, please check the log file".format(error_count))
+    flag=input("Do yo want to check the divisor hardware?(y/N)\n")
+    if (flag=='y' or flag=='Y'):
+        subprocess.call(["vsim", "-c", "-do", "../common/sim/divisorNOGUI.do"])
+        with open(harmSampleFile,"r") as fin_pointer, open(divisorHWResults,"r") as hwres_pointer, open(divisorLogFile,"w") as log_pointer:
+            i=1
+            error_count=0
+            for line_in, line_hwres in zip(fin_pointer,hwres_pointer):
+                str_in=line_in.split()
+                str_hwres=line_hwres.split()
+                if (str_in[0]=='0'):          #signed case
+                    a=twos_comp(int(str_in[1],2),len(str_in[1]))
+                    b=twos_comp(int(str_in[2],2),len(str_in[2]))
+                    qS=quotient_software(a,b)
+                    sS=reminder_software(a,b)
+                    qH=twos_comp(int(str_hwres[0],2),len(str_hwres[0]))
+                    sH=twos_comp(int(str_hwres[1],2),len(str_hwres[1]))
+                else:                       #unsigned case
+                    a=int(str_in[1],2)
+                    b=int(str_in[2],2)
+                    qS=quotient_software(a,b)
+                    sS=reminder_software(a,b)
+                    qH=int(str_hwres[0],2)
+                    sH=int(str_hwres[1],2)
+                error=errorCheck(qS,qH) or errorCheck(sS,sH)
+                if (error):
+                    error_count+=1
+                    log_pointer.write("MISTAKE #{}\tINSTRUCTION {}\n".format(i,str_in[0]))
+                    log_pointer.write("Sample  :\t {} \t {}\n".format(a,b))
+                    log_pointer.write("Expected:\t {} \t {}\n".format(qS,sS))
+                    log_pointer.write("Had:     \t {} \t {}\n".format(qH,sH))
+                    log_pointer.write("\n")
+                i+=1
+            if(error_count==0):
+                print("Yeeeee! The divisor seems going well!")
+            else:
+                print("Ops! There are {} mistakes, please check the log file".format(error_count))
+    flag=input("Do yo want to check the multiplier hardware?(y/N)\n")
+    if (flag=='y' or flag=='Y'):
+        subprocess.call(["vsim", "-c", "-do", "../common/sim/multiplierNOGUI.do"])
+        with open(harmSampleFile,"r") as fin_pointer, open(multiplierHWResults,"r") as hwres_pointer, open(multiplierLogFile,"w") as log_pointer:
+            i=1
+            error_count=0
+            for line_in, line_hwres in zip(fin_pointer,hwres_pointer):
+                str_in=line_in.split()
+                str_hwres=line_hwres
+                if (str_in[0]=='0'):          #signed case
+                    a=twos_comp(int(str_in[1],2),len(str_in[1]))
+                    b=twos_comp(int(str_in[2],2),len(str_in[2]))
+                    p=software_mult(a,b)
+                    pH=twos_comp(int(str_hwres,2),len(str_hwres))
+                else:                       #unsigned case
+                    a=int(str_in[1],2)
+                    b=int(str_in[2],2)
+                    p=software_mult(a,b)
+                    pH=int(str_hwres,2)
+                error=errorCheck(p,pH)
+                if (error):
+                    error_count+=1
+                    log_pointer.write("MISTAKE #{}\tINSTRUCTION {}\n".format(i,str_in[0]))
+                    log_pointer.write("Sample  :\t {} \t {}\n".format(a,b))
+                    log_pointer.write("Expected:\t {} \n".format(p))
+                    log_pointer.write("Had:     \t {} \n".format(pH))
+                    log_pointer.write("\n")
+                i+=1
+            if(error_count==0):
+                print("Yeeeee! The multiplier seems going well!")
+            else:
+                print("Ops! There are {} mistakes, please check the log file".format(error_count))
