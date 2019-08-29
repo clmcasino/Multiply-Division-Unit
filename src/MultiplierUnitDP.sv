@@ -148,7 +148,7 @@ module MultiplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_c
 
   syncCounter #(6) counter ( .clk(clk),
                             .rst_n(rst_n),
-                            .clear(1'b0),
+                            .clear(csa_clear),
                             .parallelLoad(6'b0),
                             .threashold(6'b011111),
                             .upDown_n(1'b1),

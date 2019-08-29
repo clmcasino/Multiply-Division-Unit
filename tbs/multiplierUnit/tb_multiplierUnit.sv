@@ -29,11 +29,11 @@ module tb_multiplierUnit ();
   string s;
   initial begin
     @(posedge rst_n);
-    @(posedge clk);
+    @(posedge clk); 
     `ifdef GUI
       usigned=0;
-      multiplicand=32'b10110011101101110010111010111011;
-      multiplier=32'b11000101110101111011110111100000000;
+      multiplicand=32'b10001011011011011111001100110001;
+      multiplier=32'b11000111011110111110111000010111;
       valid=1;
       @(posedge clk);
       valid=0;
