@@ -101,7 +101,7 @@ module MultiplierUnit (clk,rst_n,valid,usigned,multiplier,multiplicand,product,r
       multKernelStep: begin
         csa_clear=1'b0;
         multiplicand_en=1'b0;
-        notMultiplicand_en=1'b1;
+        notMultiplicand_en=1'b0;
         sumMux_sel=1'b1;
         sum_en=1'b1;
         carry_en=1'b1;
