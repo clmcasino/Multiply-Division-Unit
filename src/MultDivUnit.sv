@@ -4,7 +4,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
   input rst_n;
   input [2:0] opCode;
   input valid;
-  input [parallelism-1:0] lOp;
+  input [parallelism-1:0] lOp;//must be rs2
   input [parallelism-1:0] rOp;
   output [parallelism-1:0] result;
   output done;
@@ -48,7 +48,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
   logic divisorReady;
   logic load1;
 
-  enum bit [5:0]{   idle            =5'b00000,
+  enum bit [4:0]{   idle            =5'b00000,
                     divByZeroState  =5'b00001,
                     divOverflowState=5'b00010,
                     loadData        =5'b00011,
@@ -561,7 +561,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
         notLOp_en=1'b0;
         saveReminder=1'b0;
         sumMux_sel=2'b0;
-        carryMux_sel=1'b0;
+        carryMux_sel=1'b1;
         sum_en=1'b0;
         carry_en=1'b0;
         leftAddMux_sel=2'b0;
@@ -577,7 +577,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
         count_load=1'b0;
         count_en=1'b0;
         counterReg_en=1'b0;
-        prevReg_en=1'b0;
+        prevReg_en=1'b1;
         csa_clear=1'b0;
         d_o_n_e=1'b0;
         d_i_v_B_y_Z_e_r_o=1'b0;
@@ -588,8 +588,8 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
         divisor_lShift=1'b0;
         notLOp_en=1'b1;
         saveReminder=1'b0;
-        sumMux_sel=2'b10;
-        carryMux_sel=1'b0;
+        sumMux_sel=2'b11;
+        carryMux_sel=1'b1;
         sum_en=1'b1;
         carry_en=1'b0;
         leftAddMux_sel=2'b01;
@@ -616,9 +616,9 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
         divisor_lShift=1'b0;
         notLOp_en=1'b0;
         saveReminder=1'b0;
-        sumMux_sel=2'b11;
+        sumMux_sel=2'b10;
         carryMux_sel=1'b1;
-        sum_en=1'b0;
+        sum_en=1'b1;
         carry_en=1'b1;
         leftAddMux_sel=2'b0;
         rightAddMux_sel=2'b0;
@@ -645,7 +645,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
         notLOp_en=1'b0;
         saveReminder=1'b0;
         sumMux_sel=2'b0;
-        carryMux_sel=1'b0;
+        carryMux_sel=1'b1;
         sum_en=1'b0;
         carry_en=1'b0;
         leftAddMux_sel=2'b0;

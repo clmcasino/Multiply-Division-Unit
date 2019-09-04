@@ -1,4 +1,4 @@
-module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_overflow,lOp_en,divisor_lShift,notLOp_en,saveReminder,sumMux_sel,carryMux_sel,sum_en,carry_en,leftAddMux_sel,rightAddMux_sel,QCorrectBitMux_sel,rightAddMode,lRes_en,rRes_en,reminder_rShift,counterMux_sel,thrMux_sel,count_upDown,count_load,count_en,counterReg_en,prevReg_en,tc,signS,magnitudeD);
+module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_overflow,lOp_en,divisor_lShift,notLOp_en,saveReminder,sumMux_sel,carryMux_sel,sum_en,carry_en,leftAddMux_sel,rightAddMux_sel,QCorrectBitMux_sel,rightAddMode,lRes_en,rRes_en,reminder_rShift,counterMux_sel,thrMux_sel,count_upDown,count_load,count_en,counterReg_en,prevReg_en,tc,signS,magnitudeD,csa_clear);
   parameter parallelism=32;
   input clk;
   input rst_n;
@@ -42,6 +42,7 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   logic [parallelism:0] signCorrection_to_rOpReg;
   logic [parallelism:0] lOp_to_kernelLogic;
   logic [parallelism+2:0] sumHMux_to_sumHReg;
+  logic [parallelism+1:0] sumLMux_to_sumLReg;
   logic [parallelism+2:0] carryHMux_to_carryHReg;
   logic [parallelism:0] notLOp_to_kernelLogic;
   logic [parallelism:0] leftAdder_to_outReg;
@@ -58,12 +59,15 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   logic [parallelism:0] kl_to_csa;
   logic [parallelism+1:0] csaSum_to_outReg;
   logic [parallelism+1:0] csaCarry_to_outReg;
+  logic [parallelism:0] leftOpleftAdd;
+  logic [parallelism:0] rightOpleftAdd;
+  logic [parallelism-1:0] leftOprightAdd;
+  logic [parallelism-1:0] rightOprightAdd;
   logic [parallelism:0] sum_to_outAdders;
   logic [parallelism:0] carry_to_outAdders;
-  logic [parallelism:0] leftAdder_to_outReg;
   logic [parallelism-1:0] rightAdder_to_outReg;
   logic [parallelism-1:0] rResOutReg;
-  logic [parallelsim+1:0] lResOutReg;
+  logic [parallelism+1:0] lResOutReg;
   logic [parallelism-1:0] res;
   logic [5:0] counterMux_to_counter;
   logic [5:0] thrMux_to_thr;
@@ -108,7 +112,7 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
       default: begin
         usignedL=0;
         usignedR=0;
-      end;
+      end
     endcase
   end
 
@@ -153,9 +157,9 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   //mux access to sumH 35 bits (3.32)
   mux4to1 #(parallelism+3) sumHMux ( .inA({signCorrection_to_rOpReg[parallelism],signCorrection_to_rOpReg[parallelism],signCorrection_to_rOpReg}), //we need to multiply *2
                                     .inB({csaSum_to_outReg[parallelism+1:0],1'b0}),
-                                    .inC({2'b0,csaSum_to_outReg[parallelism+1:1]}),
-                                    .inD({3{firstPP[parallelism]},firstPP[parallelism:1]}),
-                                    .out(rOpMux_to_sumHReg),
+                                    .inC({{2{csaSum_to_outReg[parallelism+1]}},csaSum_to_outReg[parallelism+1:1]}),
+                                    .inD({{3{firstPP[parallelism]}},firstPP[parallelism:1]}),
+                                    .out(sumHMux_to_sumHReg),
                                     .sel(sumMux_sel));
   //sumH register
   register #(parallelism+3) sumHReg (  .parallelIn(sumHMux_to_sumHReg),
@@ -170,8 +174,8 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   //mux access to sumL 34 bits
   mux4to1 #(parallelism+3) sumLMux ( .inA({parallelism+2{1'b0}}),
                                     .inB({sumLMux_to_sumLReg[parallelism:0],newQ}),
-                                    .inC({firstPP[0],signCorrection_to_rOpReg}),
-                                    .inD({csaSum_to_outReg[0],sumLMux_to_sumLReg[parallelism+1:1]}),
+                                    .inC({csaSum_to_outReg[0],sumL[parallelism+1:1]}),
+                                    .inD({firstPP[0],signCorrection_to_rOpReg}),
                                     .out(sumLMux_to_sumLReg),
                                     .sel(sumMux_sel));
   //sumL register
@@ -182,13 +186,13 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
                                   .clear(csa_clear),
                                   .sample_en(sum_en));
   //carryHMux
-  mux2to1 #(parallelism+2) carryHMux ( .inA({csaCarry_to_outReg[parallelism:0],2'b0}),
-                                    .inB({2'b0,csaCarry_to_outReg[parallelism:0]}),
+  mux2to1 #(parallelism+3) carryHMux ( .inA({csaCarry_to_outReg[parallelism:0],2'b0}),
+                                    .inB({{2{csaCarry_to_outReg[parallelism+1]}},csaCarry_to_outReg[parallelism:0]}),
                                     .out(carryHMux_to_carryHReg),
                                     .sel(carryMux_sel));
   //carryH
-  register #(parallelism+1) carryHReg (  .parallelIn(carryHMux_to_carryHReg),
-                                    .parallelOut(carrH),
+  register #(parallelism+3) carryHReg (  .parallelIn(carryHMux_to_carryHReg),
+                                    .parallelOut(carryH),
                                     .clk(clk),
                                     .rst_n(rst_n),
                                     .clear(csa_clear),
@@ -196,7 +200,7 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   //new quotient not bit
   assign newNQ = (Non0 & SignSel);
   //carryL register
-  register #(parallelism) carryLReg (  .parallelIn(carryL[parallelism-2:0],newNQ),
+  register #(parallelism) carryLReg (  .parallelIn({carryL[parallelism-2:0],newNQ}),
                                   .parallelOut(carryL),
                                   .clk(clk),
                                   .rst_n(rst_n),
@@ -213,20 +217,20 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   ///if it's the last step of the division we need to divide by 2
   // since it was already done automatically at the previous step
   assign sum_to_outAdders = (saveReminder) ? {sumH[parallelism+1:1]} : {1'b0,sumH[parallelism-2:0],sumL[parallelism+1]};
-  assign carry_to_outAdders = (saveReminder) ? {carryH[parallelism+1:1]} : {1'b0,carry_to_csa[parallelism-2:0],1'b0};
+  assign carry_to_outAdders = (saveReminder) ? {carryH[parallelism+1:1]} : {1'b0,carryH[parallelism-2:0],1'b0};
 
   //mux left operand left adder
   mux4to1 #(parallelism+1) leftOpleftAdd_mux (  .inA(sum_to_outAdders),
                                               .inB(~lOp_to_kernelLogic),
                                               .inC(lOp_to_kernelLogic),
                                               .inD(notLOp_to_kernelLogic),
-                                              .out(leftOpleftAd),
+                                              .out(leftOpleftAdd),
                                               .sel(leftAddMux_sel));
   //mux right operand left adder
   mux4to1 #(parallelism+1) rightOpleftAdd_mux (  .inA(carry_to_outAdders),
-                                              .inB({parallelism{1'b0},1'b1}),
-                                              .inC(reminderOutReg[parallelism+1:1]),
-                                              .inD(reminderOutReg[parallelism+1:1]),
+                                              .inB({{parallelism{1'b0}},1'b1}),
+                                              .inC(lResOutReg[parallelism+1:1]),
+                                              .inD(lResOutReg[parallelism+1:1]),
                                               .out(rightOpleftAdd),
                                               .sel(leftAddMux_sel));
   //mux left operand right adder
@@ -270,7 +274,7 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
                                                     .shiftLeft(1'b0),
                                                     .shiftRight(reminder_rShift),
                                                     .newBit(lResOutReg[parallelism+1]));
-  assign signS = (reminderOutReg[parallelism+1]);
+  assign signS = (lResOutReg[parallelism+1]);
 
   //quotient - prodL
   register #(parallelism) quoProdLReg (  .parallelIn(rightAdder_to_outReg),
@@ -325,14 +329,14 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
 
   //feedback circuit
   //leftOp
-  register #(parallelsim) prevLopReg (  .parallelIn(lOp),
+  register #(parallelism) prevLopReg (  .parallelIn(lOp),
                                         .parallelOut(prevLOp),
                                         .clk(clk),
                                         .rst_n(rst_n),
                                         .clear(1'b0),
                                         .sample_en(prevReg_en));
   //rightOp
-  register #(parallelsim) prevRopReg (  .parallelIn(rOp),
+  register #(parallelism) prevRopReg (  .parallelIn(rOp),
                                         .parallelOut(prevROp),
                                         .clk(clk),
                                         .rst_n(rst_n),
@@ -353,24 +357,23 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
                                             .inB(prevROp),
                                             .isEqual(rEquality));
   always_comb begin
-    if ((((prevOpCode==1'b001) or (prevOpCode==1'b010) or (prevOpCode==1'b011)) and (opCode==1'b000)) or (((opCode==1'b100) or (opCode==1'b110)) and ((prevOpCode==1'b100) or (prevOpCode==1'b110))) or (((opCode==1'b101) or (opCode==1'b111)) and ((prevOpCode==1'b101) or (prevOpCode==1'b111))) or (opCode==prevOpCode)) begin
+    if ((((prevOpCode==3'b001) || (prevOpCode==3'b010) || (prevOpCode==3'b011)) && (opCode==3'b000)) || (((opCode==3'b100) || (opCode==3'b110)) && ((prevOpCode==3'b100) || (prevOpCode==3'b110))) || (((opCode==3'b101) || (opCode==3'b111)) && ((prevOpCode==3'b101) || (prevOpCode==3'b111))) || (opCode==prevOpCode)) begin
       opEquality=1'b1;
     end else begin
       opEquality=1'b0;
     end
   end
-  assign res_ready = (lEquality and rEquality and opEquality) ? 1'b1 : 1'b0;
+  assign res_ready = (lEquality & rEquality & opEquality);
 
   comparator #(parallelism) zero_comparator ( .inA(lOp),
                                             .inB({parallelism{1'b0}}),
                                             .isEqual(divZero));
-  assign div_by_zero = (divZero and opCode[2]);
+  assign div_by_zero = (divZero & opCode[2]);
   comparator #(parallelism) min_comparator ( .inA(lOp),
                                             .inB({parallelism{1'b1}}),
                                             .isEqual(min));
   comparator #(parallelism) maxPos_comparator ( .inA(rOp),
                                             .inB({1'b0,{parallelism-1{1'b1}}}),
                                             .isEqual(maxPos));
-  assign div_overflow = (min and maxPos and opCode[2]) ? 1'b1 : 1'b0;
-
+  assign div_overflow = (min & maxPos & opCode[2]);
 endmodule
