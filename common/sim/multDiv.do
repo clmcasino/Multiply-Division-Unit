@@ -29,8 +29,11 @@ add wave sim:/tb_multDivUnit/DUT/DP/sumLMux_to_sumLReg
 add wave sim:/tb_multDivUnit/DUT/DP/leftOpleftAdd
 add wave sim:/tb_multDivUnit/DUT/DP/rightOpleftAdd
 add wave sim:/tb_multDivUnit/DUT/DP/leftAdder_to_outReg
-add wave sim:/tb_multDivUnit/DUT/DP/rResOutReg
 add wave sim:/tb_multDivUnit/DUT/DP/lResOutReg
+add wave sim:/tb_multDivUnit/DUT/DP/leftOprightAdd
+add wave sim:/tb_multDivUnit/DUT/DP/rightOprightAdd
+add wave sim:/tb_multDivUnit/DUT/DP/rightAdder_to_outReg
+add wave sim:/tb_multDivUnit/DUT/DP/rResOutReg
 add wave sim:/tb_multDivUnit/DUT/DP/res
 add wave sim:/tb_multDivUnit/DUT/done
 add wave sim:/tb_multDivUnit/DUT/DP/prevLOp

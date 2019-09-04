@@ -173,7 +173,7 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   assign newQ = (Non0 & ~SignSel);
   //mux access to sumL 34 bits
   mux4to1 #(parallelism+3) sumLMux ( .inA({parallelism+2{1'b0}}),
-                                    .inB({sumLMux_to_sumLReg[parallelism:0],newQ}),
+                                    .inB({sumL[parallelism:0],newQ}),
                                     .inC({csaSum_to_outReg[0],sumL[parallelism+1:1]}),
                                     .inD({firstPP[0],signCorrection_to_rOpReg}),
                                     .out(sumLMux_to_sumLReg),
@@ -235,8 +235,8 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
                                               .sel(leftAddMux_sel));
   //mux left operand right adder
   mux4to1 #(parallelism) leftOprightAdd_mux (  .inA(sumL[parallelism-1:0]),
-                                              .inB(quotient),
-                                              .inC(~quotient),
+                                              .inB(rResOutReg),
+                                              .inC(~rResOutReg),
                                               .inD(sumL[parallelism:1]),
                                               .sel(rightAddMux_sel),
                                               .out(leftOprightAdd));

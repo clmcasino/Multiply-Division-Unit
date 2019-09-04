@@ -297,7 +297,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
         count_load=1'b1;
         count_en=1'b0;
         counterReg_en=1'b0;
-        prevReg_en=1'b0;
+        prevReg_en=1'b1;
         csa_clear=1'b0;
         d_o_n_e=1'b0;
         d_i_v_B_y_Z_e_r_o=1'b0;
@@ -547,7 +547,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
         thrMux_sel=1'b0;
         count_upDown=1'b0;
         count_load=1'b0;
-        count_en=1'b0;
+        count_en=1'b1;
         counterReg_en=1'b0;
         prevReg_en=1'b0;
         csa_clear=1'b0;
