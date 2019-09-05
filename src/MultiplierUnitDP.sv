@@ -38,7 +38,7 @@ module MultiplierUnitDP (clk,rst_n,usigned,multiplier,multiplicand,product,csa_c
   logic [parallelism-1:0] prodL;
   logic [parallelism-1:0] prodH;
   //dividing by 2 if datas are unsigned
-  assign signCorrection_to_MultiplierReg = (usigned) ? {1'b0,multiplier[parallelism-1:0]} : {multiplier[parallelism-1],multiplier[parallelism-1:0]};
+  assign signCorrection_to_MultiplierReg = (1'b1) ? {1'b0,multiplier[parallelism-1:0]} : {multiplier[parallelism-1],multiplier[parallelism-1:0]};
   assign signCorrection_to_MultipicandReg = (usigned) ? {1'b0,multiplicand[parallelism-1:0]} : {multiplicand[parallelism-1],multiplicand[parallelism-1:0]};
 
   //multiplicand register

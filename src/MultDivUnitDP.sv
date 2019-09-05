@@ -94,8 +94,8 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   always_comb begin
     case (opCode)
       3'b010:begin
-        usignedL=0;
-        usignedR=1;
+        usignedL=1;
+        usignedR=0;
       end
       3'b011:begin
         usignedL=1;
@@ -106,7 +106,7 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
         usignedR=1;
       end
       3'b111:begin
-        usignedL=0;
+        usignedL=1;
         usignedR=1;
       end
       default: begin
@@ -172,7 +172,7 @@ module MultDivUnitDP (clk,rst_n,opCode,lOp,rOp,result,res_ready,div_by_zero,div_
   //new quotient bit
   assign newQ = (Non0 & ~SignSel);
   //mux access to sumL 34 bits
-  mux4to1 #(parallelism+3) sumLMux ( .inA({parallelism+2{1'b0}}),
+  mux4to1 #(parallelism+2) sumLMux ( .inA({parallelism+2{1'b0}}),
                                     .inB({sumL[parallelism:0],newQ}),
                                     .inC({csaSum_to_outReg[0],sumL[parallelism+1:1]}),
                                     .inD({firstPP[0],signCorrection_to_rOpReg}),

@@ -7,6 +7,7 @@
 harmSampleFile="../common/harmInSample.txt"
 divisorHWResults="../common/divisorHWResults.txt"
 multiplierHWResults="../common/multiplierHWResults.txt"
+HWResults="../common/HWResults.txt"
 divisorLogFile="../common/divisorLogFile.txt"
 multiplierLogFile="../common/multiplierLogFile.txt"
 sampleFile="../common/inSample.txt"
@@ -33,7 +34,7 @@ def errorCheck(a,b):
             return True
         else:
             return False
-    if(e>0.1):
+    if(e>0.0000000001):
         return True
     else:
         return False
@@ -233,3 +234,109 @@ if (flag=='y' or flag=='Y'):
                 print("Yeeeee! The multiplier seems going well!")
             else:
                 print("Ops! There are {} mistakes, please check the log file".format(error_count))
+
+#Check the complete hardware
+flag=input("Do yo want to check the harware?(Y/n)\n")
+if(not(flag=='n' or flag=='N')):
+    print("Complete hardware will be checked!")
+    subprocess.call(["vsim", "-c", "-do", "../common/sim/multDivNOGUI.do"])
+    with open(sampleFile,"r") as fin_pointer, open(logFile,"w") as log_pointer, open(HWResults,"r") as hwres_pointer:
+        i=1
+        error_count=0
+        for line_in, line_hwres in zip(fin_pointer,hwres_pointer):
+            str_num=line_in.split()
+            if   (str_num[0]=="000"): #000--->MUL
+                a=twos_comp(int(str_num[1],2),len(str_num[1]))
+                b=twos_comp(int(str_num[2],2),len(str_num[2]))
+                c=BE_multiplier(a,b,True,32)
+                SW_string=printer_2s(int(c),64)
+                SW_string=SW_string[32:64]
+                #if(SW_string!=line_hwres[0:32]):
+                #    error=True
+                #else:
+                error=False
+            elif (str_num[0]=="001"): #001--->MULH
+                a=twos_comp(int(str_num[1],2),len(str_num[1]))
+                b=twos_comp(int(str_num[2],2),len(str_num[2]))
+                c=BE_multiplier(a,b,True,32)
+                SW_string=printer_2s(int(c),64)
+                SW_string=SW_string[0:32]
+                if(SW_string!=line_hwres[0:32]):
+                    error=True
+                else:
+                    error=False
+            elif (str_num[0]=="010"): #010--->MULHSU
+                a=twos_comp(int(str_num[1],2),len(str_num[1]))
+                b=int(str_num[2],2)
+                c=BE_multiplier(a,b,False,32)
+                SW_string=printer_2s(int(c),64)
+                SW_string=SW_string[0:32]
+                if(SW_string!=line_hwres[0:32]):
+                    error=True
+                else:
+                    error=False
+            elif (str_num[0]=="011"): #011--->MULHU
+                a=int(str_num[1],2)
+                b=int(str_num[2],2)
+                c=BE_multiplier(a,b,False,32)
+                SW_string=printer_2s(int(c),64)
+                SW_string=SW_string[0:32]
+                if(SW_string!=line_hwres[0:32]):
+                    error=True
+                else:
+                    error=False
+            elif (str_num[0]=="100"): #100--->DIV
+                a=twos_comp(int(str_num[1],2),len(str_num[1]))
+                b=twos_comp(int(str_num[2],2),len(str_num[2]))
+                SRT=SRTr2_divisor(a,b,32,1,-0.5,0)
+                SW_string=printer_2s(int(SRT[0]),32)
+                if(SW_string[0:31]!=line_hwres[0:31]):
+                    error=True
+                else:
+                    error=False
+            elif (str_num[0]=="101"): #101--->DIVU
+                a=int(str_num[1],2)
+                b=int(str_num[2],2)
+                SRT=SRTr2_divisor(a,b,32,0,-0.5,0)
+                SW_string=printer_2s(int(SRT[0]),32)
+                if(SW_string[0:31]!=line_hwres[0:31]):
+                    error=True
+                else:
+                    error=False
+            elif (str_num[0]=="110"): #110--->REM
+                a=twos_comp(int(str_num[1],2),len(str_num[1]))
+                b=twos_comp(int(str_num[2],2),len(str_num[2]))
+                SRT=SRTr2_divisor(a,b,32,1,-0.5,0)
+                SW_string=printer_2s(int(SRT[1]),32)
+                if(SW_string[0:31]!=line_hwres[0:31]):
+                    error=True
+                else:
+                    error=False
+            elif (str_num[0]=="111"): #111--->REMU
+                a=int(str_num[1],2)
+                b=int(str_num[2],2)
+                SRT=SRTr2_divisor(a,b,32,0,-0.5,0)
+                SW_string=printer_2s(int(SRT[1]),32)
+                if(SW_string[0:31]!=line_hwres[0:31]):
+                    error=True
+                else:
+                    error=False
+            if (error):
+                if (int(str_num[0],2)>3):
+                    log_pointer.write("MISTAKE #{}\tINSTRUCTION {}\n".format(i,str_num[0]))
+                    log_pointer.write("Sample  :\t {} \t {}\n".format(a,b))
+                    log_pointer.write("Expected:\t {}\n".format(SW_string))
+                    log_pointer.write("Had:     \t {}\n".format(line_hwres))
+                    log_pointer.write("\n")
+                else:
+                    log_pointer.write("MISTAKE #{}\tINSTRUCTION {}\n".format(i,str_num[0]))
+                    log_pointer.write("Sample  :\t {} \t {}\n".format(a,b))
+                    log_pointer.write("Expected:\t {} \n".format(SW_string))
+                    log_pointer.write("Had:     \t {} \n".format(line_hwres))
+                    log_pointer.write("\n")
+                error_count+=1
+            i+=1
+    if(error_count==0):
+        print("Yeeeee, it's ALIVEEE!")
+    else:
+        print("Ops, we have {} mistakes".format(error_count))

@@ -36,8 +36,8 @@ module tb_multDivUnit ();
     fout_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/HWResults.txt","w");
     while (! $feof(fin_pointer)) begin
       $fscanf(fin_pointer,"%b",opCode);
-      $fscanf(fin_pointer,"%b",lOp);
       $fscanf(fin_pointer,"%b",rOp);
+      $fscanf(fin_pointer,"%b",lOp);
       valid=1;
       @(posedge clk);
       valid=0;
@@ -45,7 +45,7 @@ module tb_multDivUnit ();
       $fwrite(fout_pointer,"%b\n",result);
       @(posedge clk);
     end
-    $stop;
+    $finish;
     $fclose(fin_pointer);
     $fclose(fout_pointer);
   end

@@ -1,0 +1,386 @@
+cd ..
+do sim/multiplier.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/multiplierUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:44:13 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 11:44:13 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:44:13 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnit.sv 
+# -- Compiling module MultiplierUnit
+# 
+# Top level modules:
+# 	MultiplierUnit
+# End time: 11:44:13 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:44:13 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnitDP.sv 
+# -- Compiling module MultiplierUnitDP
+# 
+# Top level modules:
+# 	MultiplierUnitDP
+# End time: 11:44:13 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:44:13 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../tbs/multiplierUnit/tb_multiplierUnit.sv 
+# -- Compiling module tb_multiplierUnit
+# 
+# Top level modules:
+# 	tb_multiplierUnit
+# End time: 11:44:13 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -c ../tbs/multiplierUnit/work.tb_multiplierUnit 
+# Start time: 11:44:13 on Sep 05,2019
+# Loading sv_std.std
+# Loading ../tbs/multiplierUnit/work.tb_multiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnitDP
+# Loading ../tbs/multiplierUnit/work.register
+# Loading ../tbs/multiplierUnit/work.kernelLogic
+# Loading ../tbs/multiplierUnit/work.mux2to1
+# Loading ../tbs/multiplierUnit/work.carrySaveAdder
+# Loading ../tbs/multiplierUnit/work.adder
+# Loading ../tbs/multiplierUnit/work.syncCounter
+# Loading ../tbs/multiplierUnit/work.fullAdder
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(47): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(48): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(49): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# WARNING: No extended dataflow license exists
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 1 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 2 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
+# ** Error: Cannot lock WLF file: "vsim.wlf"
+#           errno 11: Resource temporarily unavailable.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: unknown  Hostname: clmcasino-SATELLITE-L50-B  ProcessID: 7219
+#           Attempting to use alternate WLF file "./wlft0MoXDu".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft0MoXDu
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Note: $finish    : ../tbs/multiplierUnit/tb_multiplierUnit.sv(57)
+#    Time: 765 ns  Iteration: 1  Instance: /tb_multiplierUnit
+# 1
+# Break in Module tb_multiplierUnit at ../tbs/multiplierUnit/tb_multiplierUnit.sv line 57
+do sim/multiplier.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/multiplierUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:22 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 11:45:22 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:22 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnit.sv 
+# -- Compiling module MultiplierUnit
+# 
+# Top level modules:
+# 	MultiplierUnit
+# End time: 11:45:22 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:22 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnitDP.sv 
+# -- Compiling module MultiplierUnitDP
+# 
+# Top level modules:
+# 	MultiplierUnitDP
+# End time: 11:45:22 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:22 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../tbs/multiplierUnit/tb_multiplierUnit.sv 
+# -- Compiling module tb_multiplierUnit
+# 
+# Top level modules:
+# 	tb_multiplierUnit
+# End time: 11:45:22 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:45:22 on Sep 05,2019, Elapsed time: 0:01:09
+# Errors: 4, Warnings: 7
+# vsim -c ../tbs/multiplierUnit/work.tb_multiplierUnit 
+# Start time: 11:45:22 on Sep 05,2019
+# Loading sv_std.std
+# Loading ../tbs/multiplierUnit/work.tb_multiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnitDP
+# Loading ../tbs/multiplierUnit/work.register
+# Loading ../tbs/multiplierUnit/work.kernelLogic
+# Loading ../tbs/multiplierUnit/work.mux2to1
+# Loading ../tbs/multiplierUnit/work.carrySaveAdder
+# Loading ../tbs/multiplierUnit/work.adder
+# Loading ../tbs/multiplierUnit/work.syncCounter
+# Loading ../tbs/multiplierUnit/work.fullAdder
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(47): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(48): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(49): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# WARNING: No extended dataflow license exists
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 1 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 2 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
+# ** Error: Cannot lock WLF file: "vsim.wlf"
+#           errno 11: Resource temporarily unavailable.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: unknown  Hostname: clmcasino-SATELLITE-L50-B  ProcessID: 7219
+#           Attempting to use alternate WLF file "./wlft6Poscm".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlft6Poscm
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Note: $finish    : ../tbs/multiplierUnit/tb_multiplierUnit.sv(57)
+#    Time: 765 ns  Iteration: 1  Instance: /tb_multiplierUnit
+# 1
+# Break in Module tb_multiplierUnit at ../tbs/multiplierUnit/tb_multiplierUnit.sv line 57
+do sim/multiplier.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/multiplierUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:52 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 11:45:52 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:52 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnit.sv 
+# -- Compiling module MultiplierUnit
+# 
+# Top level modules:
+# 	MultiplierUnit
+# End time: 11:45:52 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:52 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnitDP.sv 
+# -- Compiling module MultiplierUnitDP
+# 
+# Top level modules:
+# 	MultiplierUnitDP
+# End time: 11:45:52 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:45:52 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../tbs/multiplierUnit/tb_multiplierUnit.sv 
+# -- Compiling module tb_multiplierUnit
+# 
+# Top level modules:
+# 	tb_multiplierUnit
+# End time: 11:45:52 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:45:53 on Sep 05,2019, Elapsed time: 0:00:31
+# Errors: 4, Warnings: 7
+# vsim -c ../tbs/multiplierUnit/work.tb_multiplierUnit 
+# Start time: 11:45:53 on Sep 05,2019
+# Loading sv_std.std
+# Loading ../tbs/multiplierUnit/work.tb_multiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnitDP
+# Loading ../tbs/multiplierUnit/work.register
+# Loading ../tbs/multiplierUnit/work.kernelLogic
+# Loading ../tbs/multiplierUnit/work.mux2to1
+# Loading ../tbs/multiplierUnit/work.carrySaveAdder
+# Loading ../tbs/multiplierUnit/work.adder
+# Loading ../tbs/multiplierUnit/work.syncCounter
+# Loading ../tbs/multiplierUnit/work.fullAdder
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(47): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(48): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(49): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# WARNING: No extended dataflow license exists
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 1 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 2 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
+# ** Error: Cannot lock WLF file: "vsim.wlf"
+#           errno 11: Resource temporarily unavailable.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: unknown  Hostname: clmcasino-SATELLITE-L50-B  ProcessID: 7219
+#           Attempting to use alternate WLF file "./wlftP3BtUE".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftP3BtUE
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Note: $finish    : ../tbs/multiplierUnit/tb_multiplierUnit.sv(57)
+#    Time: 765 ns  Iteration: 1  Instance: /tb_multiplierUnit
+# 1
+# Break in Module tb_multiplierUnit at ../tbs/multiplierUnit/tb_multiplierUnit.sv line 57
+do sim/multiplier.do
+# ** Warning: (vlib-34) Library already exists at "../tbs/multiplierUnit/work".
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:47:27 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/components/adder.sv ../src/components/carrySaveAdder.sv ../src/components/comparator.sv ../src/components/divOvfDetectBlock.sv ../src/components/divZeroDetect.sv ../src/components/fullAdder.sv ../src/components/kernelLogic.sv ../src/components/mux2to1.sv ../src/components/mux4to1.sv ../src/components/register.sv ../src/components/shiftRegister.sv ../src/components/syncCounter.sv 
+# -- Compiling module adder
+# -- Compiling module carrySaveAdder
+# -- Compiling module comparator
+# -- Compiling module divOvfDetectBlock
+# -- Compiling module divZeroDetect
+# -- Compiling module fullAdder
+# -- Compiling module kernelLogic
+# -- Compiling module mux2to1
+# -- Compiling module mux4to1
+# -- Compiling module register
+# -- Compiling module shiftRegister
+# -- Compiling module syncCounter
+# 
+# Top level modules:
+# 	adder
+# 	carrySaveAdder
+# 	comparator
+# 	divOvfDetectBlock
+# 	divZeroDetect
+# 	kernelLogic
+# 	mux2to1
+# 	mux4to1
+# 	register
+# 	shiftRegister
+# 	syncCounter
+# End time: 11:47:27 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:47:27 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnit.sv 
+# -- Compiling module MultiplierUnit
+# 
+# Top level modules:
+# 	MultiplierUnit
+# End time: 11:47:27 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:47:27 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../src/MultiplierUnitDP.sv 
+# -- Compiling module MultiplierUnitDP
+# 
+# Top level modules:
+# 	MultiplierUnitDP
+# End time: 11:47:27 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 11:47:27 on Sep 05,2019
+# vlog -reportprogress 300 -work ../tbs/multiplierUnit/work ../tbs/multiplierUnit/tb_multiplierUnit.sv 
+# -- Compiling module tb_multiplierUnit
+# 
+# Top level modules:
+# 	tb_multiplierUnit
+# End time: 11:47:27 on Sep 05,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# End time: 11:47:27 on Sep 05,2019, Elapsed time: 0:01:34
+# Errors: 4, Warnings: 7
+# vsim -c ../tbs/multiplierUnit/work.tb_multiplierUnit 
+# Start time: 11:47:27 on Sep 05,2019
+# Loading sv_std.std
+# Loading ../tbs/multiplierUnit/work.tb_multiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnit
+# Loading ../tbs/multiplierUnit/work.MultiplierUnitDP
+# Loading ../tbs/multiplierUnit/work.register
+# Loading ../tbs/multiplierUnit/work.kernelLogic
+# Loading ../tbs/multiplierUnit/work.mux2to1
+# Loading ../tbs/multiplierUnit/work.carrySaveAdder
+# Loading ../tbs/multiplierUnit/work.adder
+# Loading ../tbs/multiplierUnit/work.syncCounter
+# Loading ../tbs/multiplierUnit/work.fullAdder
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(47): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(48): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# ** Warning: (vsim-PLI-3691) ../tbs/multiplierUnit/tb_multiplierUnit.sv(49): Expected a system task, not a system function '$fscanf'.
+#    Time: 0 ns  Iteration: 0  Instance: /tb_multiplierUnit File: ../tbs/multiplierUnit/tb_multiplierUnit.sv
+# WARNING: No extended dataflow license exists
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 1 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 2 times, errno 11
+# ** Error: Unable to lock WLF file "vsim.wlf". Retrying 3 times, errno 11
+# ** Error: Cannot lock WLF file: "vsim.wlf"
+#           errno 11: Resource temporarily unavailable.
+# ** Warning: (vsim-WLF-5000) WLF file currently in use: vsim.wlf
+#           File in use by: unknown  Hostname: clmcasino-SATELLITE-L50-B  ProcessID: 7219
+#           Attempting to use alternate WLF file "./wlftHA0a2d".
+# ** Warning: (vsim-WLF-5001) Could not open WLF file: vsim.wlf
+#           Using alternate file: ./wlftHA0a2d
+# ** Warning: (vsim-3116) Problem reading symbols from linux-gate.so.1 : can not open ELF file.
+# ** Note: $finish    : ../tbs/multiplierUnit/tb_multiplierUnit.sv(57)
+#    Time: 765 ns  Iteration: 1  Instance: /tb_multiplierUnit
+# 1
+# Break in Module tb_multiplierUnit at ../tbs/multiplierUnit/tb_multiplierUnit.sv line 57
+# FATAL ERROR: Unable to read lock file necessary for use of uncounted nodelocked license. Exiting.
+# End time: 11:52:27 on Sep 05,2019, Elapsed time: 0:05:00
+# Errors: 4, Warnings: 6

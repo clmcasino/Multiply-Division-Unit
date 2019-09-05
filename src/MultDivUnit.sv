@@ -5,7 +5,7 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
   input [2:0] opCode;
   input valid;
   input [parallelism-1:0] lOp;//must be rs2
-  input [parallelism-1:0] rOp;
+  input [parallelism-1:0] rOp;//must be rs1
   output [parallelism-1:0] result;
   output done;
   output divByZero;
@@ -725,4 +725,4 @@ module MultDivUnit (clk,rst_n,opCode,lOp,rOp,result,done,valid,divByZero,divOver
       end
     endcase
   end
-endmodule;
+endmodule

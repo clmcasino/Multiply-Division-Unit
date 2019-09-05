@@ -29,7 +29,7 @@ module tb_multiplierUnit ();
   string s;
   initial begin
     @(posedge rst_n);
-    @(posedge clk); 
+    @(posedge clk);
     `ifdef GUI
       usigned=0;
       multiplicand=32'b10001011011011011111001100110001;
@@ -45,8 +45,8 @@ module tb_multiplierUnit ();
       fout_pointer= $fopen("/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/common/multiplierHWResults.txt","w");
       while (! $feof(fin_pointer)) begin
         $fscanf(fin_pointer,"%b",usigned);
-        $fscanf(fin_pointer,"%b",multiplicand);
         $fscanf(fin_pointer,"%b",multiplier);
+        $fscanf(fin_pointer,"%b",multiplicand);
         valid=1;
         @(posedge clk);
         valid=0;
