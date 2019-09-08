@@ -86,3 +86,5 @@ do sim/multDiv.do
 #    Time: 174 ns  Iteration: 1  Instance: /tb_multDivUnit
 # 1
 # Break in Module tb_multDivUnit at ../tbs/divmultUnit/tb_divMultUnit.sv line 48
+# End time: 17:04:16 on Sep 05,2019, Elapsed time: 1:37:34
+# Errors: 0, Warnings: 5

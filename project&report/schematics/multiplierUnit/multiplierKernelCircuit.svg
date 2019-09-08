@@ -15,7 +15,10 @@
    version="1.1"
    id="svg8507"
    inkscape:version="0.92.4 (f8dce91, 2019-08-02)"
-   sodipodi:docname="multiplierKernelCircuit.svg">
+   sodipodi:docname="multiplierKernelCircuit.svg"
+   inkscape:export-filename="/home/clmcasino/Desktop/Mult-Div-Unit/Multiply-Division-Unit/project&amp;report/schematics/multiplierUnit/multiplierKernelCircuit.png"
+   inkscape:export-xdpi="586"
+   inkscape:export-ydpi="586">
   <defs
      id="defs8501">
     <inkscape:path-effect
@@ -35,8 +38,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="486.28972"
-     inkscape:cy="485.47398"
+     inkscape:cx="360.93258"
+     inkscape:cy="514.04541"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="true"
