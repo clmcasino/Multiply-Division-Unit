@@ -51,9 +51,9 @@ module kernelLogic (data,notData,saveReminder,opCode,sumMSBs,carryMSBs,multDecis
   always_comb begin
     if (saveReminder) begin              //case we are in saveReminder STATE
       //assigning by default SignSel and Non0
-      SS<=1'b0;
-      N0<=1'b0;
-      oData<={parallelism{1'b0}};
+      SS=1'b0;
+      N0=1'b0;
+      oData={parallelism{1'b0}};
     end else begin
       if (opCode[2]==1'b1) begin        //case DIVISION
         if (!signD) begin    //case divisor is NEGATIVE
